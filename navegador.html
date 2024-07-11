@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Document</title>
+		<title>Navegador</title>
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<link href="css/menu.css" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="css/estilo.css">
@@ -12,28 +12,106 @@
 		<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
 		<script type="text/javascript" src="js/qcslider.jquery.js"></script>
 		<script type="text/javascript" src="js/sweetalert.js"></script>
+		<!-- Plantilla  -->
+		<link rel="apple-touch-icon" href="assets/img/apple-icon.png">
+		<link rel="shortcut icon" type="image/x-icon"
+			href="assets/img/favicon.ico">
+
+		<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+		<link rel="stylesheet" href="assets/css/templatemo.css">
+
+		<!-- Load fonts style after rendering the layout styles -->
+		<link rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
+		<link rel="stylesheet" href="assets/css/fontawesome.min.css">
+		<title>Portal</title>
 
 	</head>
 	<body>
+		<!--Contenido Start-->
 		<div class="container-fluid rounded" id="contenido">
-			<div class="row">
-				<div class="col-12 col-sm-12 col-md-12 col-lg-12">
-					<div id="content">
-						<ul class="menu">
-							<li><a href="#" class="clickLink" id="lnkInicio">Inicio</a></li>
-							<li><a href="#">Opciones de Registro</a>
-								<ul style="z-index: 2;">
-									<li><a href="#" class="clickLink"
-											id="lnkVacaciones">Vacaciones</a></li>
-									<li><a href="#" class="clickLink" id="lnkPrestamos">Prestamos</a></li>
-									<li><a href="#" class="clickLink" id="lnkPersonal">Personal</a></li>
+			<!--Navegador Start-->
+			<nav class="navbar navbar-expand-lg navbar-light shadow"> <!--Light-->
+				<div class="container d-flex justify-content-between align-items-center">
+					<div class="row">
+						<div class="col-12 col-sm-12 col-md-12 col-lg-12">
+							<div id="content">
+								<ul class="menu">
+									<li><a href="#" class="clickLink" id="lnkInicio">Inicio</a></li>
+									<li><a href="#">Opciones de Registro</a>
+										<ul style="z-index: 2;">
+											<li><a href="#" class="clickLink"
+													id="lnkVacaciones">Vacaciones</a></li>
+											<li><a href="#" class="clickLink"
+													id="lnkPrestamos">Prestamos</a></li>
+											<li><a href="#" class="clickLink" id="lnkPersonal">Personal</a></li>
+										</ul>
+									</li>
+									<li><a href="#">Contacto</a></li>
 								</ul>
-							</li>
-							<li><a href="#">Contacto</a></li>
-						</ul>
+							</div>
+						</div>
 					</div>
 				</div>
+			</nav>
+			<!--Navegador Finish-->
+		</div>
+		<!--Contenido Finish-->
+
+		<!--Nav Example Start-->
+		<nav class="navbar navbar-expand-lg navbar-light shadow"
+			style="background-color: bisque;">
+			<div class="container d-flex justify-content-between align-items-center">
+
+				<a class="navbar-brand text-success logo h1 align-self-center"
+					href="index.html">
+					Zay
+				</a>
+
+				<button class="navbar-toggler border-0" type="button"
+					data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav"
+					aria-controls="navbarSupportedContent" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<div
+					class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between"
+					id="templatemo_main_nav">
+					<div class="flex-fill">
+						<ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
+							<li class="nav-item">
+								<a class="nav-link" href="index.html">Home</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="about.html">About</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="shop.html">Shop</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="contact.html">Contact</a>
+							</li>
+						</ul>
+					</div>
+					<div class="navbar align-self-center d-flex">
+						<a class="nav-icon position-relative text-decoration-none" href="#">
+							<i class="fa fa-fw fa-user text-dark mr-3"></i>
+							<span
+								class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">+99</span>
+						</a>
+					</div>
+				</div>
+
 			</div>
-		</body>
-	</html>
-	<script type="text/javascript" src="js/funcionamiento.js"></script>
+		</nav>
+		<!--Nav Example Finish-->
+	</body>
+	<script src="assets/js/jquery-1.11.0.min.js"></script>
+	<script src="assets/js/jquery-migrate-1.2.1.min.js"></script>
+	<script src="assets/js/bootstrap.bundle.min.js"></script>
+	<script src="assets/js/templatemo.js"></script>
+	<script src="assets/js/custom.js"></script>
+</html>
+<script type="text/javascript" src="js/funcionamiento.js"></script>
+<!-- Slider  -->
