@@ -1,0 +1,686 @@
+<link href="css/bootstrap.min.css"  rel="stylesheet">
+<link href="css/menu.css"  rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="css/qc.slider.css">
+<link rel="stylesheet" type="text/css" href="css/sweetalert.css">
+<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="js/qcslider.jquery.js"></script>
+<script type="text/javascript" src="js/sweetalert.js"></script>
+
+<style>
+	.altocolumna
+	{
+		height:500px;
+	}
+
+	.BotonesMenu
+	{
+		width: 250px;
+		height: 30px;
+		background-color: #9c0101;
+		color: white;
+	}
+
+	.negrillaIzquierda
+	{
+		font-weight: 700;
+		
+	}
+	
+	.EnvabezadoTabla
+	{
+		background-color: #9c0101; 
+		width: 10px; 
+		height:15px; 
+		color: white; 
+		text-align: center;
+	}
+	
+	.CeldasTabla
+	{
+		text-align: center; 
+		background-color: #258622 ;
+		color: #fff !important;
+		text-decoration: none; 
+		font-family: Arial, Helvetica, sans-serif !important;
+		font-size: 12px;
+		font-weight: bold; 
+		cursor: pointer;
+		border-radius: 3px;
+		padding: 8px 15px;
+	}
+
+	.estiloHeaderTabla
+	{
+		background-color: #9c0101; width: 45px; height:15px; color: white;
+	}
+	
+	body {font-family: Arial, Helvetica, sans-serif;}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.TituloFormulario
+{
+	background-color:#9c0101 !important; color: #fff !important;
+}
+
+</style>
+
+<div class="container-fluid rounded" id="contenido">
+
+	 <div class="row">
+		<div class="col-12 col-sm-12 col-md-12 col-lg-12">
+				<div id="content">
+				<ul class="menu">
+					 <li><a href="#"  class="clickLink" id="lnkInicio">Inicio</a></li>
+					 <li><a href="#">Opciones de Registro</a>
+						<ul style="z-index: 2;">
+							<li><a href="#" class="clickLink" id="lnkVacaciones">Vacaciones</a></li>
+							<li><a href="#" class="clickLink" id="lnkPrestamos" >Prestamos</a></li>
+							<li><a href="#" class="clickLink" id="lnkPersonal">Personal</a></li>
+						</ul>
+					 </li>
+					 <li><a href="#">Contacto</a></li>
+					 </ul>
+					</div>
+		</div>
+	 </div>
+	 <div class="row">
+
+		<div id="dvInicio" class="col-12 col-sm-12 col-md-12 col-lg-12">
+			<div style="height: 400px;" ></div>
+		</div>
+
+	 	<div id="dvPrestamo" class="col-12 col-sm-12 col-md-12 col-lg-12">
+			
+				 <div class="card shadow" >
+				 <div class="card-header text-center p-3 TituloFormulario" >
+						<h5 class="card-title">Solcitud de prestamo</h5> 
+				</div>
+				 <div class="card-body">
+					 <div class="form-group row ">
+						 <div class="col-md-6 col-lg-6">
+							<label class="font-weight-bold w-100">Nombre Cliente: </label>
+						   <div class="input-group" >
+								   
+									<input type="text" class="form-control border" id="txtNombreCliente"  >
+						   </div>
+						</div>
+						 <div class="col-md-6 col-lg-6">
+							<label class="font-weight-bold w-100">Cédula: </label>
+						   <div class="input-group" >
+								   
+									<input type="text" class="form-control border" id="txtCedula"  >
+						   </div>
+						</div>
+					 </div>
+					  <div class="form-group row ">
+						
+					 </div>
+					 <div class="form-group row ">
+						<div class="col-md-6 col-lg-6">
+							<label class="font-weight-bold w-100">Tipo Préstamo: <i class="fas fa-exclamation-circle requerido"></i></label>
+						   <div class="input-group" >
+							  
+								<select id="ddlTipoPrestamo" class="custom-select border" onchange="consultarListaDocumentos()">
+									<option value="1">Salud</option>
+									<option value="2">Estudio</option>
+									<option value="3">Educación</option>
+									<option value="4">Vivienda</option>
+								</select>                    
+							</div>
+						</div>
+                
+
+						<div class="col-md-6 col-lg-6">
+							<label class="font-weight-bold w-100">Años de Trabajo: </label>
+								   <div class="input-group" >
+										   
+											<input type="text" class="form-control border" maxlength="2" id="txtAnioTrabajo"  >
+								   </div>
+						</div>
+					</div>
+					 <div class="form-group row ">
+						
+                
+
+						<div class="col-md-6 col-lg-6">
+							<label class="font-weight-bold w-100">Valor Prestamo: </label>
+								   <div class="input-group" >
+										   
+											<input type="text" class="form-control border" id="txtValorPrestamo"  >
+								   </div>
+						</div>
+						<div class="col-md-6 col-lg-6">
+							<label class="font-weight-bold w-100"># Cuotas: <i class="fas fa-exclamation-circle requerido"></i></label>
+						   <div class="input-group" >
+							  
+								<select id="ddlCuotas" class="custom-select border" >
+									<option value="">--Seleccione--</option>
+									<option value="1">1 Cuota</option>
+									<option value="2">2 Cuotas</option>
+									<option value="3">3 Cuotas</option>
+									<option value="4">4 Cuotas</option>
+								</select>                    
+							</div>
+						</div>
+					</div>
+					<div class="form-group row ">
+						
+                
+
+						<div class="col-md-6 col-lg-6">
+							<label class="font-weight-bold w-100">Valor Cuota mensual: </label>
+								   <div class="input-group" >
+										   
+											<input type="text" class="form-control border" id="txtCuotaMensual" readonly  >
+								   </div>
+						</div>
+						<div class="col-md-6 col-lg-6">
+							<label class="font-weight-bold w-100">Excepción: <i class="fas fa-exclamation-circle requerido"></i></label>
+						   <div class="input-group" >
+							  
+								<input type="checkbox" id="chkExcepcion" value="first_checkbox" />                    
+							</div>
+						</div>
+					</div>
+					<div class="form-group row ">
+						
+                
+
+						<div class="col-md-12 col-lg-12">
+							<label id="lblObservacion" class="font-weight-bold w-100">Observación: </label>
+								   <div class="input-group" >
+										   <textarea id="txtObservacion" style="width:100%"  rows="4" cols="50"></textarea>
+											
+								   </div>
+						</div>
+						
+					</div>
+					<div class="form-group row ">
+						
+                
+
+						<div class="col-md-12 col-lg-12">
+							
+								   <div class="input-group" >
+										   <button type="button" class="BotonesMenu" id="btnGenerarPDF" onclick="GenerarPDF()">GenerarPDF</button>
+											
+								   </div>
+						</div>
+						
+					</div>
+				 </div>
+			 </div>
+			
+			
+			
+					
+		</div>
+				
+		<div id="dvSolVacaciones" class="col-12 col-sm-12 col-md-12 col-lg-12">
+			
+				 <div class="card shadow" >
+				 <div class="card-header text-center p-3 TituloFormulario" >
+						<h5 class="card-title">Solcitud de Vacaciones</h5> 
+				</div>
+				 <div class="card-body">
+					 <div class="form-group row ">
+						 <div class="col-md-6 col-lg-6">
+							<label class="font-weight-bold w-100">Nombre Cliente: </label>
+						   <div class="input-group" >
+								   
+									<input type="text" class="form-control border" id="txtNombreCliente"  >
+						   </div>
+						</div>
+						 <div class="col-md-6 col-lg-6">
+							<label class="font-weight-bold w-100">Cédula: </label>
+						   <div class="input-group" >
+								   
+									<input type="text" class="form-control border" id="txtCedula"  >
+						   </div>
+						</div>
+					 </div>
+					 <div class="form-group row ">
+						<div class="col-md-6 col-lg-6">
+							<label class="font-weight-bold w-100">Fecha Inicio: </label>
+						   <div class="input-group" >
+								   
+									<input type="date" class="form-control border" id="txtFechaInicio"  >
+						   </div>
+						</div>
+						 <div class="col-md-6 col-lg-6">
+							<label class="font-weight-bold w-100">Fecha Fin: </label>
+						   <div class="input-group" >
+								   
+									<input type="date" class="form-control border" id="txtFechaFin"  >
+						   </div>
+						</div>
+					 </div>
+					 <div class="form-group row ">
+						<div class="col-md-12 col-lg-12">
+							
+								   <div class="input-group" >
+										   <button type="button" class="BotonesMenu" id="myBtn" >Agregar Usuario</button>
+											
+								   </div>
+						</div>
+					 </div>
+					 
+					  <div class="form-group row ">
+						<div class="col-md-12 col-lg-12">
+							<label class="font-weight-bold w-100">Empleados: </label>
+						   <div class="input-group" >
+								   <table id="tbEmpleados" cellpadding="0" cellspacing="0" style="width: 100%; border-collapse: collapse;" class="table table-striped table-bordered">
+										<thead>
+											<tr>
+												
+												<th class="EnvabezadoTabla" >Nombre</th>
+												<th class="EnvabezadoTabla">Edad</th>
+												<th class="EnvabezadoTabla">Ocupación</th> 
+												<th class="estiloHeaderTabla"></th>
+						
+											</tr>
+										</thead>
+										<tbody id="listEmpleados">
+										</tbody>
+									</table>
+									
+						   </div>
+						</div>
+						 
+					 </div>
+					
+						
+                
+
+						<div class="col-md-12 col-lg-12">
+							
+								   <div class="input-group" >
+										   <button type="button" class="BotonesMenu" id="btnGenerarPDF" onclick="GenerarPDF()">GenerarPDF</button>
+											
+								   </div>
+						</div>
+						
+					</div>
+				 </div>
+		</div>
+	</div>	
+				
+	<div id="dvRePersonal" class="altocolumna">
+		<div style="height: 400px;" ></div>
+				
+			
+			
+	 </div>
+	 
+	 <div class="row" >
+	</div>
+	<div class="row" >
+	</div>
+	<div class="row" >
+	</div>
+
+	  <div class="row" >
+			<div class="col-12 col-sm-12 col-md-12 col-lg-12">
+				<section class="slide">
+					<div class="slider-container">
+						<ul class="slider-wrapper" id="slider">
+							<li class="slide-current">
+								<img src="images/imagen2.jpg"/>
+								<div class="capa"></div>
+							</li>
+							<li class="slide">
+								<img src="images/imagen1.jpg"/>
+								
+							</li>
+							<li class="video" data-type="video" data-video="https://www.jqueryscript.net/dummy/1.mp4" data-muted="true"></li>
+							<li class="video" data-type="youtube" data-video="c9g4SK-iYKM" data-muted="true"></li>
+							<li class="video" data-type="youtube" data-video="AcixoJTGejA" data-muted="true"></li>
+							<li class="video" data-type="youtube" data-video="sciFPlDs9XI" data-muted="true"></li>
+						</ul>
+						<div class="drt-control control-left" id="lft-control"><</div>
+						<div class="drt-control control-right" id="rht-control">></div>
+						<ul class="slider-controls" id="slider-controls"></ul>
+						<div class="tempo-bar" id="barra"></div>
+					</div>
+				</section>
+			</div>
+	 </div>
+	  <div class="row">
+		<div class="col-12 col-sm-12 col-md-12 col-lg-12">
+			FOOTER
+		</div>
+	 </div>
+</div>
+
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    
+	
+	 <div class="form-group row ">
+						 <div class="col-md-12 col-lg-12">
+							<label class="font-weight-bold w-100">Nombre Usuario: </label>
+						   <div class="input-group" >
+								   
+									<input type="text" class="form-control border" id="txtModNombreUsuario"  >
+						   </div>
+						</div>
+						 <div class="col-md-12 col-lg-12">
+							<label class="font-weight-bold w-100">Edad Usuario: </label>
+						   <div class="input-group" >
+								   
+									<input type="text" class="form-control border" id="txtModEdadUsuario"  >
+						   </div>
+						</div>
+						  <div class="col-md-12 col-lg-12">
+							<label class="font-weight-bold w-100">Ocupación Usuario: </label>
+						   <div class="input-group" >
+								   
+									<input type="text" class="form-control border" id="txtModOcupacionUsuario"  >
+						   </div>
+						</div>
+						<div class="col-md-12 col-lg-12">
+							
+								   <div class="input-group" >
+										   <button type="button" class="BotonesMenu" id="btnGuardarUsuario" onclick="GuardarUsuario()">Guardar Usuario</button>
+											
+								   </div>
+						</div>
+					 </div>
+	
+  </div>
+
+</div>
+
+
+
+<script>
+
+var users = [
+    { id:1, name: 'John', age: 25, occupation: 'gardener', email:'echasiquiza@gmail.com' },
+    { id:2, name: 'Lenny', age: 51, occupation: 'programmer', email:'echasiquiza2@gmail.com' },
+    { id:3, name: 'Andrew', age: 43, occupation: 'teacher', email:'echasiquiza3@gmail.com' },
+    { id:4, name: 'Peter', age: 81, occupation: 'teacher', email:'echasiquiza4@gmail.com' },
+    { id:5, name: 'Anna', age: 47, occupation: 'programmer', email:'echasiquiza5@gmail.com' },
+    { id:6, name: 'Albert', age: 76, occupation: 'programmer', email:'echasiquiza6@gmail.com' },
+]
+
+function recorrerArray()
+{
+	$('#listEmpleados').empty();
+	for(var i=0; i< users.length; i++)
+	{
+		var Botones = '<td width="5%" style="text-align:center;">'+
+		'<div class="CeldasTabla" onclick="seleccionarRow(\'' + users[i].id + '\');">Saludar</div></td>';
+		newTr='<tr class="text-center">'+
+                   
+                    '<td>'+users[i].name+'</td>'+
+                    '<td>'+users[i].age+'</td>'+
+                    '<td>'+users[i].occupation+'</td>'+
+                    Botones+
+                '</tr>';
+		$('#listEmpleados').append(newTr);
+	}
+}
+
+
+
+function seleccionarRow(idRegistro)
+{
+	var seleccionado = users.filter(x => x.id == idRegistro);
+
+	alert("Hola : "+seleccionado[0].name + " email: " + seleccionado[0].email );
+}
+
+function GuardarUsuario()
+{
+						alert("Usuario guardado");
+						users.push({"id": users.length+1 , "name": $('#txtModNombreUsuario').val(),
+						"age": $('#txtModEdadUsuario').val(),
+						"occupation": $('#txtModOcupacionUsuario').val() }); 
+						recorrerArray();
+						modal.style.display = "none";
+}
+
+$(document).ready(function() {
+
+	$('ul li:has(ul)').hover(function(e) {
+ 		$(this).find('ul').css({display: "block"});
+	 },
+ 	function(e) {
+ 		$(this).find('ul').css({display: "none"});
+ 	});
+	
+	$("#slider").QCslider({duration: 7000});
+
+	$("#dvInicio").show();
+	$("#dvPrestamo").hide();
+	$("#dvRePersonal").hide();
+	$("#dvSolVacaciones").hide();
+	$("#txtObservacion").hide();
+	$("#lblObservacion").hide();
+	recorrerArray();
+
+
+});
+
+function MostrarDiv(tipo)
+{
+	if(tipo == 1)
+	{
+		$("#dvPrestamo").show();
+		$("#dvRePersonal").hide();
+		$("#dvSolVacaciones").hide();
+	}
+
+	if(tipo == 2)
+	{
+		$("#dvPrestamo").hide();
+		$("#dvRePersonal").show();
+		$("#dvSolVacaciones").hide();
+	}
+
+	if(tipo == 3)
+	{
+		$("#dvPrestamo").hide();
+		$("#dvRePersonal").hide();
+		$("#dvSolVacaciones").show();
+	}
+
+}
+
+
+function CalcularCuota()
+{
+	if($('#txtValorPrestamo').val() != '' && $('#ddlCuotas').val() != '')
+	{
+		var Resultado = parseFloat($('#txtValorPrestamo').val()) / parseFloat($('#ddlCuotas').val());
+		$('#txtCuotaMensual').val(Resultado);
+	}
+}
+
+$("#ddlCuotas").change(function () {
+           if($('#txtValorPrestamo').val() != '' && $('#ddlCuotas').val() != '')
+	{
+		var Resultado = parseFloat($('#txtValorPrestamo').val()) / parseFloat($('#ddlCuotas').val());
+		$('#txtCuotaMensual').val(Resultado);
+	}
+        });
+		
+var controlValorPrestamo = document.querySelector('#txtValorPrestamo');
+controlValorPrestamo.onkeydown = function(event){
+	if(isNaN(event.key) && event.key != "Backspace")
+	{
+	event.preventDefault();
+	}
+};
+
+var anioTrabajoControl = document.querySelector('#txtAnioTrabajo');
+anioTrabajoControl.onkeydown = function(event){
+	if(isNaN(event.key) && event.key != "Backspace")
+	{
+	event.preventDefault();
+	}
+};
+
+$("#chkExcepcion").change(function() {
+    if(this.checked) {
+        $("#txtObservacion").show();
+		$("#lblObservacion").show();
+    }
+	else
+	{
+	$("#txtObservacion").hide();
+		$("#lblObservacion").hide();
+	}
+});
+
+
+function GenerarPDF()
+{
+	if($('#txtNombreCliente').val() == '')
+	{
+		swal('El Nombre no puede estar vacio');
+		return;
+	}
+	
+	if($('#txtAnioTrabajo').val() == '')
+	{
+		swal('Los años de trabajo no puede estar vacio');
+		return;
+	}
+	
+	var x=$("#chkExcepcion").is(":checked");
+	
+	if(x != true)
+	{
+		if(parseInt($('#txtAnioTrabajo').val()) < 2)
+		{
+			swal('No tiene los años suficientes para solicitar un prestamo');
+			return;
+		}
+	}
+	else
+		{
+			if($('#txtObservacion').val() == '')
+			{
+				swal('Solicito Excepción debe ingresar la causa');
+				return;
+			}
+		}
+	
+	
+	
+	
+}
+
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+/*
+$('#lnkVacaciones').click(function(){
+      
+}); 
+
+$('#lnkPrestamos').click(function(){
+      
+}); 
+
+$('#lnkPersonal').click(function(){
+      
+}); 
+*/
+$('.clickLink').click(function(){
+	var id = $(this).attr('id');
+	
+	$("#dvInicio").hide();
+	$("#dvRePersonal").hide();
+	$("#dvSolVacaciones").hide();
+	$('#dvPrestamo').hide();
+
+	if(id == 'lnkInicio')
+	  {
+		$("#dvInicio").show();
+	  }
+      if(id == 'lnkVacaciones')
+	  {
+		$("#dvSolVacaciones").show();
+	  }
+
+	  if(id == 'lnkPrestamos')
+	  {
+		$('#dvPrestamo').show();
+	  }
+
+	  if(id == 'lnkPersonal')
+	  {
+		$('#dvRePersonal').show();
+	  }
+
+	}); 
+
+	
+
+ </script>
