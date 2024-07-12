@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Portal</title>
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/menu.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="css/estilo.css">
+		<link rel="stylesheet" type="text/css" href="css/qc.slider.css">
+		<link rel="stylesheet" type="text/css" href="css/sweetalert.css">
+		<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+		<script type="text/javascript" src="js/qcslider.jquery.js"></script>
+		<script type="text/javascript" src="js/sweetalert.js"></script>
+		<!-- Plantilla  -->
+		<link rel="apple-touch-icon" href="assets/img/apple-icon.png">
+		<link rel="shortcut icon" type="image/x-icon"
+			href="assets/img/favicon.ico">
+
+		<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+		<link rel="stylesheet" href="assets/css/templatemo.css">
+
+		<!-- Load fonts style after rendering the layout styles -->
+		<link rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
+		<link rel="stylesheet" href="assets/css/fontawesome.min.css">
+
+		<!-- Navegador Parte2 -->
+		<!-- Google Web Fonts -->
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link
+			href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+			rel="stylesheet">
+
+		<!-- Font Awesome -->
+		<link
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+			rel="stylesheet">
+
+		<!-- Libraries Stylesheet -->
+		<link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+		<link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css"
+			rel="stylesheet" />
+
+		<!-- Customized Bootstrap Stylesheet -->
+		<link href="css/style.css" rel="stylesheet">
+		<title>Portal</title>
+
+	</head>
+	<!-- <script type="text/javascript" src="js/recargaprimero.js"></script> -->
+
+	<body>
+		<!--Prestamos Start-->
+		<div>&nbsp</div>
+		<div class="row justify-content-center">
+			<div id="dvPrestamo"
+				class="col-8 col-sm-8 col-md-8 col-lg-8">
+
+				<div class="card shadow">
+					<div class="card-header text-center p-3 TituloFormulario">
+						<h5 class="card-title">Solcitud de prestamo</h5>
+					</div>
+					<div class="card-body">
+						<div class="form-group row ">
+							<div class="col-md-6 col-lg-6">
+								<label class="font-weight-bold w-100">Nombre Cliente: </label>
+								<div class="input-group">
+
+									<input type="text" class="form-control border" id="txtNombreCliente">
+								</div>
+							</div>
+							<div class="col-md-6 col-lg-6">
+								<label class="font-weight-bold w-100">Cédula: </label>
+								<div class="input-group">
+
+									<input type="text" class="form-control border" id="txtCedula">
+								</div>
+							</div>
+						</div>
+						<div class="form-group row ">
+
+						</div>
+						<div class="form-group row ">
+							<div class="col-md-6 col-lg-6">
+								<label class="font-weight-bold w-100">Tipo Préstamo: <i
+										class="fas fa-exclamation-circle requerido"></i></label>
+								<div class="input-group">
+
+									<select id="ddlTipoPrestamo" class="custom-select border"
+										onchange="consultarListaDocumentos()">
+										<option value="1">Salud</option>
+										<option value="2">Estudio</option>
+										<option value="3">Educación</option>
+										<option value="4">Vivienda</option>
+									</select>
+								</div>
+							</div>
+
+							<div class="col-md-6 col-lg-6">
+								<label class="font-weight-bold w-100">Años de Trabajo: </label>
+								<div class="input-group">
+
+									<input type="text" class="form-control border" maxlength="2"
+										id="txtAnioTrabajo">
+								</div>
+							</div>
+						</div>
+						<div class="form-group row ">
+
+							<div class="col-md-6 col-lg-6">
+								<label class="font-weight-bold w-100">Valor Prestamo: </label>
+								<div class="input-group">
+
+									<input type="text" class="form-control border" id="txtValorPrestamo">
+								</div>
+							</div>
+							<div class="col-md-6 col-lg-6">
+								<label class="font-weight-bold w-100"># Cuotas: <i
+										class="fas fa-exclamation-circle requerido"></i></label>
+								<div class="input-group">
+
+									<select id="ddlCuotas" class="custom-select border">
+										<option value>--Seleccione--</option>
+										<option value="1">1 Cuota</option>
+										<option value="2">2 Cuotas</option>
+										<option value="3">3 Cuotas</option>
+										<option value="4">4 Cuotas</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="form-group row ">
+
+							<div class="col-md-6 col-lg-6">
+								<label class="font-weight-bold w-100">Valor Cuota mensual: </label>
+								<div class="input-group">
+
+									<input type="text" class="form-control border" id="txtCuotaMensual"
+										readonly>
+								</div>
+							</div>
+							<div class="col-md-6 col-lg-6">
+								<label class="font-weight-bold w-100">Excepción: <i
+										class="fas fa-exclamation-circle requerido"></i></label>
+								<div class="input-group">
+
+									<input type="checkbox" id="chkExcepcion" value="first_checkbox" />
+								</div>
+							</div>
+						</div>
+						<div class="form-group row ">
+
+							<div class="col-md-12 col-lg-12">
+								<label id="lblObservacion" class="font-weight-bold w-100">Observación:
+								</label>
+								<div class="input-group">
+									<textarea id="txtObservacion" style="width:100%" rows="4"
+										cols="50"></textarea>
+
+								</div>
+							</div>
+
+						</div>
+						<div class="form-group row ">
+
+							<div class="col-md-12 col-lg-12">
+
+								<div class="input-group">
+									<button type="button" class="BotonesMenu" id="btnGenerarPDF"
+										onclick="GenerarPDF()">GenerarPDF</button>
+
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--Prestamos Finish-->
+		<!--Modal Finish-->
+	</body>
+	<!--CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC-->
+	<script src="assets/js/jquery-1.11.0.min.js"></script>
+	<script src="assets/js/jquery-migrate-1.2.1.min.js"></script>
+	<script src="assets/js/bootstrap.bundle.min.js"></script>
+	<script src="assets/js/templatemo.js"></script>
+	<script src="assets/js/custom.js"></script>
+	<!-- JavaScrit Navegador2 -->
+	<!-- JavaScript Libraries -->
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+	<script src="lib/easing/easing.min.js"></script>
+	<script src="lib/owlcarousel/owl.carousel.min.js"></script>
+	<script src="lib/tempusdominus/js/moment.min.js"></script>
+	<script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+	<script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+	<!-- Contact Javascript File -->
+	<script src="mail/jqBootstrapValidation.min.js"></script>
+	<script src="mail/contact.js"></script>
+
+	<!-- Template Javascript -->
+	<script src="js/main.js"></script>
+</html>
+<script type="text/javascript" src="js/funcionamiento.js"></script>
+<script type="text/javascript" src="js/misscripts.js"></script>
+
+<!-- Slider  -->
