@@ -5,11 +5,13 @@
 
 .BotonesMenu
 {
-    width: 250px;
+    width: 100px;
     height: 30px;
-    background-color: #9c0101;
+    background-color: #59ab6e;
     color: white;
+    border: 1px solid #2b4d33; 
 }
+
 
 .negrillaIzquierda
 {
@@ -19,7 +21,8 @@
 
 .EnvabezadoTabla
 {
-    background-color: #9c0101; 
+    background-color: #59ab6e; 
+    border: 1px solid #2b4d33; 
     width: 10px; 
     height:15px; 
     color: white; 
@@ -42,19 +45,17 @@
 
 .estiloHeaderTabla
 {
-    background-color: #9c0101; width: 45px; height:15px; color: white;
+    background-color: #59ab6e; 
+    width: 45px; height:15px; 
+    color: white;
+    border: 1px solid #2b4d33; 
+
 }
 
 body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-h1
-{
-    font-family: "Bebas Neue", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-}
 
 /* The Modal (background) */
 .modal {
@@ -97,5 +98,6 @@ cursor: pointer;
 
 .TituloFormulario
 {
-background-color:#9c0101 !important; color: #fff !important;
+    border: 2px solid #2b4d33 !important; 
+    background-color:#59ab6e !important; color: #fff !important;
 }
