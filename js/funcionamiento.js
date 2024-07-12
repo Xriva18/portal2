@@ -193,36 +193,3 @@ $('#lnkPersonal').click(function(){
       
 }); 
 */
-$('.clickLink').click(function () {
-    var id = $(this).attr('id');
-    $('#template-mo-zay-hero-carousel').show();
-    $("#dvInicio").hide();
-    $("#dvContacto").hide();
-    $("#dvRePersonal").hide();
-    $("#dvSolVacaciones").hide();
-    $('#dvPrestamo').hide();
-
-    if (id == 'lnkInicio') {
-        $("#dvInicio").show();
-        $('#template-mo-zay-hero-carousel').show();
-    }
-    if (id == 'lnkVacaciones') {
-        $("#dvSolVacaciones").show();
-        $('#template-mo-zay-hero-carousel').hide();
-    }
-
-    if (id == 'lnkPrestamos') {
-        $('#dvPrestamo').show();
-        $('#template-mo-zay-hero-carousel').hide();
-    }
-
-    if (id == 'lnkPersonal') {
-        $('#dvRePersonal').show();
-        $('#template-mo-zay-hero-carousel').hide();
-    }
-    if (id == 'lnkContacto') {
-        $('#dvRePersonal').show();
-        $('#template-mo-zay-hero-carousel').hide();
-    }
-
-}); 

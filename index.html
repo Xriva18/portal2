@@ -47,7 +47,7 @@
 		<title>Portal</title>
 
 	</head>
-	<script type="text/javascript" src="js/funcionamiento.js"></script>
+	<script type="text/javascript" src="js/recargaprimero.js"></script>
 
 	<body>
 		<!--Contenido Start class="container-fluid rounded"-->
@@ -77,12 +77,13 @@
 							<!--Menu-->
 							<div class="nav navbar-nav d-flex justify-content-between mx-lg-auto"
 								id="content"><!--Centrado y separación-->
-								<a href="#" class="nav-item nav-link active clickLink">Inicio</a>
-								<!--Sub Menu-->
+								<a href="#" class="nav-item nav-link active clickLink"
+									id="lnkInicio">Inicio</a>
 								<div class="nav-item dropdown">
-									<a href="#" class="nav-link dropdown-toggle "
+									<a href="#" class="nav-link dropdown-toggle"
 										data-toggle="dropdown">Registro</a>
-									<div class="dropdown-menu border-0 rounded-0 m-0">
+									<!--Sub Menu-->
+									<div class="dropdown-menu border-0 rounded-0 m-0" id="submenu">
 										<a href="#" class="dropdown-item clickLink"
 											id="lnkVacaciones">Vacaciones</a>
 										<a href="#" class="dropdown-item clickLink"
@@ -91,7 +92,8 @@
 											id="lnkPersonal">Personal</a>
 									</div>
 								</div>
-								<a href="#" class="nav-item nav-link active clickLink">Contacto</a>
+								<a href="#" class="nav-item nav-link active clickLink"
+									id="lnkContacto">Contacto</a>
 
 							</div>
 						</div>
@@ -103,7 +105,7 @@
 
 		<!-- Carousel Start -->
 		<div class="container-fluid p-0">
-			<div id="header-carousel" class="carousel " data-ride="carousel">
+			<div id="header-carousel" class="carousel" data-ride="carousel">
 				<!-- Class = "slide" para aniamción -->
 				<div class="carousel-inner">
 					<div class="carousel-item active">
@@ -162,9 +164,7 @@
 		<!--Contenido Finish-->
 
 		<!--DvInicio Start-->
-		<div id="dvInicio" class="col-12 col-sm-12 col-md-12 col-lg-12">
-			<div style="height: 400px;"></div>
-		</div>
+
 		<!--DvInicio finish-->
 
 		<!--Prestamos Start-->
@@ -385,12 +385,11 @@
 		<!--Personal Start-->
 		<div id="dvRePersonal" class="altocolumna">
 			<div style="height: 400px;"></div>
-			<p>En progeso</p>
 		</div>
 		<!--Personal Finish-->
 		<!--Modal Start-->
 		<!-- Modal content -->
-		<div id="myModal" class="modal">
+		<div id="myModal" class="modal ">
 
 			<!-- Modal content -->
 			<div class="modal-content">
