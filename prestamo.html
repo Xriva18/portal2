@@ -150,7 +150,7 @@
 						</div>
 						<div class="form-group row ">
 
-							<div class="col-md-12 col-lg-12">
+							<div class="col-md-12 col-lg-12" id="ExcepcionObservacion">
 								<label id="lblObservacion" class="font-weight-bold w-100">Observación:
 								</label>
 								<div class="input-group">
@@ -206,5 +206,16 @@
 </html>
 <script type="text/javascript" src="js/funcionamiento.js"></script>
 <script type="text/javascript" src="js/misscripts.js"></script>
+<script>
+	$("#ExcepcionObservacion").hide();
+	$("#chkExcepcion").change(function () {
+    if (this.checked) {
+		$("#ExcepcionObservacion").show();
+    }
+    else {
+        $("#ExcepcionObservacion").hide();
+    }
+});
+</script>
 
 <!-- Slider  -->
