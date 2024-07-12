@@ -58,31 +58,76 @@ anioTrabajoControl.onkeydown = function (event) {
     }
 }
 
-//PDF
+
 function GenerarPDF() {
-    if ($('#txtNombreCliente').val() == '') {
-        swal('El nombre no puede estar vacio');
-        return;
-    }
+    /* if ($('#txtNombreCliente').val() == '') {
+         swal('El nombre no puede estar vacio');
+         return;
+     }
+ 
+     if ($('#txtAnioTrabajo').val() == '') {
+         swal('Los años de trabajo no pueden estar vacio');
+         return;
+     }
+     if ($('#ddlCuotas').val() == '0') {
+         swal('Ingrese una cuota');
+         return;
+     }
+     if ($('#ddlTipoPrestamo').val() == '0') {
+         swal('Ingrese una cuota');
+         return;
+     }
+ 
+     var x = $("#chkExcepcion").is(":checked");
+ 
+     if (x != true) {
+         if (parseInt($('#txtAnioTrabajo').val()) < 2) {
+             swal('No tiene los años suficientes para solicitar un prestamo');
+             return;
+         }
+     }
+     else {
+         if ($('#txtObservacion').val() == '') {
+             swal('Solicito excepción debe ingresar la causa');
+             return;
+         }
+     }*/
 
-    if ($('#txtAnioTrabajo').val() == '') {
-        swal('Los años de trabajo no pueden estar vacio');
-        return;
-    }
-
-    var x = $("#chkExcepcion").is(":checked");
-
-    if (x != true) {
-        if (parseInt($('#txtAnioTrabajo').val()) < 2) {
-            swal('No tiene los años suficientes para solicitar un prestamo');
-            return;
-        }
-    }
-    else {
-        if ($('#txtObservacion').val() == '') {
-            swal('Solicito excepción debe ingresar la causa');
-            return;
-        }
-    }
+    var doc = new jsPDF();
+    var y = 20;
+    var x = 20;
+    var margenX = 65;
+    doc.setFont('HELVETICA');
+    doc.setFontStyle('bold');
+    doc.setFontSize(18);
+    doc.text(76, y, 'Solicitud de prestamo');
+    y += 13;
+    doc.setFontSize(12);
+    doc.setFontStyle('times');
+    doc.setFontStyle('bold');
+    doc.text(x, y, 'Nombre del cliente:');
+    doc.text(margenX, y, '|');
+    y += 10;
+    doc.text(x, y, 'Cedula: ');
+    doc.text(margenX, y, '|');
+    y += 10;
+    doc.text(x, y, 'Tipo de prestamo: ');
+    doc.text(margenX, y, '|');
+    y += 10;
+    doc.text(x, y, 'Años de trabajo: ');
+    doc.text(margenX, y, '|');
+    y += 10;
+    doc.text(x, y, 'Valor del prestamo: ');
+    doc.text(margenX, y, '|');
+    y += 10;
+    doc.text(x, y, 'Cuotas: ');
+    doc.text(margenX, y, '|');
+    y += 10;
+    doc.text(x, y, 'Excepción: ');
+    doc.text(margenX, y, '|');
+    y += 10;
+    //Guardado
+    var nombreArchivo = 'Registro.pdf';
+    doc.save(nombreArchivo);
 
 }

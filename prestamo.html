@@ -12,6 +12,10 @@
 		<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
 		<script type="text/javascript" src="js/qcslider.jquery.js"></script>
 		<script type="text/javascript" src="js/sweetalert.js"></script>
+		<!-- Pdf  -->
+		<script src="JS/jspdf.debug.js"></script>
+        <script src="JS/html2canvas.js"></script>
+        <script src="JS/jspdf.plugin.autotable.min.js"></script>
 		<!-- Plantilla  -->
 		<link rel="apple-touch-icon" href="assets/img/apple-icon.png">
 		<link rel="shortcut icon" type="image/x-icon"
@@ -86,7 +90,7 @@
 
 									<select id="ddlTipoPrestamo" class="custom-select border"
 										onchange="consultarListaDocumentos()">
-										<option disabled selected value>---Seleccione
+										<option value="0">---Seleccione
 											---</option>
 										<option value="1">Salud</option>
 										<option value="2">Estudio</option>
@@ -119,7 +123,7 @@
 								<div class="input-group">
 
 									<select id="ddlCuotas" class="custom-select border">
-										<option disabled selected value>---Seleccione
+										<option value="0">---Seleccione
 											---</option>
 										<option value="1">1 Cuota</option>
 										<option value="2">2 Cuotas</option>
