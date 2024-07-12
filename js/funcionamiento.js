@@ -115,16 +115,16 @@ anioTrabajoControl.onkeydown = function (event) {
     }
 };
 
-$("#chkExcepcion").change(function () {
-    if (this.checked) {
-        $("#txtObservacion").show();
-        $("#lblObservacion").show();
-    }
-    else {
-        $("#txtObservacion").hide();
-        $("#lblObservacion").hide();
-    }
-});
+//$("#chkExcepcion").change(function () {
+//    if (this.checked) {
+//        $("#txtObservacion").show();
+//        $("#lblObservacion").show();
+//    }
+//    else {
+//        $("#txtObservacion").hide();
+//        $("#lblObservacion").hide();
+//    }
+//});
 
 
 function GenerarPDF() {
