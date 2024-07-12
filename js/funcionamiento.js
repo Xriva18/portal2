@@ -101,19 +101,19 @@ $("#ddlCuotas").change(function () {
     }
 });
 
-var controlValorPrestamo = document.querySelector('#txtValorPrestamo');
-controlValorPrestamo.onkeydown = function (event) {
-    if (isNaN(event.key) && event.key != "Backspace") {
-        event.preventDefault();
-    }
-};
-
-var anioTrabajoControl = document.querySelector('#txtAnioTrabajo');
-anioTrabajoControl.onkeydown = function (event) {
-    if (isNaN(event.key) && event.key != "Backspace") {
-        event.preventDefault();
-    }
-};
+//var controlValorPrestamo = document.querySelector('#txtValorPrestamo');
+//controlValorPrestamo.onkeydown = function (event) {
+//    if (isNaN(event.key) && event.key != "Backspace") {
+//        event.preventDefault();
+//    }
+//};
+//
+//var anioTrabajoControl = document.querySelector('#txtAnioTrabajo');
+//anioTrabajoControl.onkeydown = function (event) {
+//    if (isNaN(event.key) && event.key != "Backspace") {
+//        event.preventDefault();
+//    }
+//};
 
 //$("#chkExcepcion").change(function () {
 //    if (this.checked) {
@@ -127,33 +127,7 @@ anioTrabajoControl.onkeydown = function (event) {
 //});
 
 
-function GenerarPDF() {
-    if ($('#txtNombreCliente').val() == '') {
-        swal('El Nombre no puede estar vacio');
-        return;
-    }
 
-    if ($('#txtAnioTrabajo').val() == '') {
-        swal('Los años de trabajo no puede estar vacio');
-        return;
-    }
-
-    var x = $("#chkExcepcion").is(":checked");
-
-    if (x != true) {
-        if (parseInt($('#txtAnioTrabajo').val()) < 2) {
-            swal('No tiene los años suficientes para solicitar un prestamo');
-            return;
-        }
-    }
-    else {
-        if ($('#txtObservacion').val() == '') {
-            swal('Solicito Excepción debe ingresar la causa');
-            return;
-        }
-    }
-
-}
 
 // Get the modal
 var modal = document.getElementById("myModal");

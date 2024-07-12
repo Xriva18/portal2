@@ -65,15 +65,13 @@
 							<div class="col-md-6 col-lg-6">
 								<label class="font-weight-bold w-100">Nombre Cliente: </label>
 								<div class="input-group">
-
-									<input type="text" class="form-control border" id="txtNombreCliente">
+									<input type="text" class="form-control border" id="txtNombreCliente" >
 								</div>
 							</div>
 							<div class="col-md-6 col-lg-6">
 								<label class="font-weight-bold w-100">Cédula: </label>
 								<div class="input-group">
-
-									<input type="text" class="form-control border" id="txtCedula">
+									<input type="text" class="form-control border" id="txtCedula" maxlength="10">
 								</div>
 							</div>
 						</div>
@@ -88,6 +86,8 @@
 
 									<select id="ddlTipoPrestamo" class="custom-select border"
 										onchange="consultarListaDocumentos()">
+										<option disabled selected value>---Seleccione
+											---</option>
 										<option value="1">Salud</option>
 										<option value="2">Estudio</option>
 										<option value="3">Educación</option>
@@ -99,7 +99,6 @@
 							<div class="col-md-6 col-lg-6">
 								<label class="font-weight-bold w-100">Años de Trabajo: </label>
 								<div class="input-group">
-
 									<input type="text" class="form-control border" maxlength="2"
 										id="txtAnioTrabajo">
 								</div>
@@ -120,7 +119,8 @@
 								<div class="input-group">
 
 									<select id="ddlCuotas" class="custom-select border">
-										<option value>--Seleccione--</option>
+										<option disabled selected value>---Seleccione
+											---</option>
 										<option value="1">1 Cuota</option>
 										<option value="2">2 Cuotas</option>
 										<option value="3">3 Cuotas</option>
@@ -178,7 +178,6 @@
 			</div>
 		</div>
 		<!--Prestamos Finish-->
-		<!--Modal Finish-->
 	</body>
 	<!--CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC-->
 	<script src="assets/js/jquery-1.11.0.min.js"></script>
@@ -208,5 +207,7 @@
 <script type="text/javascript" src="js/prestamo.js"></script>
 <script type="text/javascript" src="js/misscripts.js"></script>
 </script>
+
+
 
 <!-- Slider  -->
