@@ -8,6 +8,7 @@ $("#chkExcepcion").change(function () {
     }
 });
 
+//Valdiacion de numero
 function isAlfa(evt) {
     evt = evt || window.event;
     var charCode = (evt.which) ? evt.which : evt.keyCode;
@@ -21,17 +22,15 @@ function isNumber(evt) {
     evt = (evt) ? evt : window.event;
     var charCode = (evt.which) ? evt.which : evt.keyCode;
     if (charCode > 31 && (charCode < 48 || charCode > 57)) {
-        document.getElementById('lblOnlyNum').style.color = 'yellow';
         return false;
-    }
-    document.getElementById('lblOnlyNum').style.color = 'rgba(255, 255, 255, 0.715)';
+    };
     return true;
 
 }
 
 var controlValorPrestamo = document.querySelector('#txtValorPrestamo');
 controlValorPrestamo.onkeydown = function (event) {
-    if (!!isNumber(event) && event.key != "Backspace") {
+    if (!isNumber(event) && event.key != "Backspace") {
         event.preventDefault();
     }
 };
@@ -59,15 +58,15 @@ anioTrabajoControl.onkeydown = function (event) {
     }
 }
 
-
+//PDF
 function GenerarPDF() {
     if ($('#txtNombreCliente').val() == '') {
-        swal('El Nombre no puede estar vacio');
+        swal('El nombre no puede estar vacio');
         return;
     }
 
     if ($('#txtAnioTrabajo').val() == '') {
-        swal('Los años de trabajo no puede estar vacio');
+        swal('Los años de trabajo no pueden estar vacio');
         return;
     }
 
@@ -81,7 +80,7 @@ function GenerarPDF() {
     }
     else {
         if ($('#txtObservacion').val() == '') {
-            swal('Solicito Excepción debe ingresar la causa');
+            swal('Solicito excepción debe ingresar la causa');
             return;
         }
     }
