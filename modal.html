@@ -70,7 +70,7 @@
 					<div class="col-md-6">
 						<label class="font-weight-bold w-100">Computadora:</label>
 						<div class="input-group">
-							<select class="custom-select form-control border">
+							<select class="custom-select form-control border" id="selComputadoraMol">
 								<option value="0">---Seleccione
 									---</option>
 								<option value="1">Dell</option>
@@ -84,7 +84,7 @@
 					<div class="col-md-6 ">
 						<label class="font-weight-bold w-100">Modelo: </label>
 						<div class="input-group">
-							<input type="text" class="form-control border" id="txtCedula">
+							<input type="text" class="form-control border" id="txtModeloMol">
 						</div>
 					</div>
 				</div>
@@ -93,7 +93,8 @@
 					<div class=" col-md-6">
 						<label class="font-weight-bold w-100">Tipo de mantenimiento:</label>
 						<div class="input-group">
-							<select class="custom-select form-control border">
+							<select class="custom-select form-control border"
+								id="selMantenimientoMol">
 								<option value="0">---Seleccione
 									---</option>
 								<option value="1">Preventivo</option>
@@ -104,7 +105,7 @@
 					<div class=" col-md-6">
 						<label class="font-weight-bold w-100">Recibe:</label>
 						<div class="input-group">
-							<select class="custom-select form-control border">
+							<select class="custom-select form-control border" id="selRecibeMol">
 								<option value="0">---Seleccione
 									---</option>
 								<option value="1">Jose</option>
@@ -126,8 +127,8 @@
 
 				<div class="form-group row">
 					<div class=" col-md-6">
-						<input type="checkbox" id="custom-checkbox-modal" class="border">
-						<label for="custom-checkbox-modal" class="checkbox-label m-1">Agregar
+						<input type="checkbox" id="chkDetallesMol" class="border">
+						<label for="chkDetallesMol" class="checkbox-label m-1">Agregar
 							detalles</label>
 					</div>
 				</div>
@@ -136,7 +137,7 @@
 					<label
 						class="col-lg-2 col-form-label font-weight-bold">Detalles:</label>
 					<div class="col-lg-10">
-						<textarea class="form-control border" id="txtObservacion"
+						<textarea class="form-control border" id="txtDetallesModal"
 							style="width:100%"
 							rows="4"
 							cols="50"></textarea>
@@ -147,13 +148,13 @@
 					<div class=" col-md-6">
 						<label class="font-weight-bold w-100">Costo:</label>
 						<div class="input-group">
-							<input type="text" class="form-control border" id="txtCedula">
+							<input type="text" class="form-control border" id="txtCostoMol">
 						</div>
 					</div>
 					<div class=" col-md-6">
 						<label class="font-weight-bold w-100">Abona:</label>
 						<div class="input-group">
-							<input type="text" class="form-control border" id="txtCedula">
+							<input type="text" class="form-control border" id="txtAbonoMol">
 						</div>
 					</div>
 				</div>
@@ -161,16 +162,15 @@
 					<div class=" col-md-6">
 						<label class="font-weight-bold w-100">Debe:</label>
 						<div class="input-group">
-							<input type="text" class="form-control border" id="txtCedula">
+							<input type="text" class="form-control border" id="txtDebeMol">
 						</div>
 
 					</div>
 					<div class=" col-md-6">
 						<label class="font-weight-bold w-100">&nbsp</label>
 						<div style="display: flex; justify-content: flex-end;">
-							<button type="button" class="BotonesMenu" id="btnGuardarUsuario"
-								onclick="GuardarUsuario()">Guardar<i
-									class="bi bi-clipboard"></i></button>
+							<button type="button" class="BotonesMenu" id="btnGuardarSolicitud"
+								onclick="GuardarUsuario()">Guardar</button>
 						</div>
 
 					</div>
