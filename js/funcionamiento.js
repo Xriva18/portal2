@@ -1,4 +1,5 @@
 
+//Usarios Recistrados
 var users = [
     { id: 1, name: 'John', age: 25, occupation: 'gardener', email: 'echasiquiza@gmail.com' },
     { id: 2, name: 'Lenny', age: 51, occupation: 'programmer', email: 'echasiquiza2@gmail.com' },
@@ -8,6 +9,7 @@ var users = [
     { id: 6, name: 'Albert', age: 76, occupation: 'programmer', email: 'echasiquiza6@gmail.com' },
 ]
 
+//Recorre apra agregar en lla tabla yd efine las columnas
 function recorrerArray() {
     $('#listEmpleados').empty();
     for (var i = 0; i < users.length; i++) {
@@ -26,12 +28,15 @@ function recorrerArray() {
 
 
 
+
+//Sauldar
 function seleccionarRow(idRegistro) {
     var seleccionado = users.filter(x => x.id == idRegistro);
 
     alert("Hola : " + seleccionado[0].name + " email: " + seleccionado[0].email);
 }
 
+//Guarda y agrega
 function GuardarUsuario() {
     alert("Usuario guardado");
     users.push({
@@ -42,6 +47,13 @@ function GuardarUsuario() {
     recorrerArray();
     modal.style.display = "none";
 }
+
+//Apoarece d eprimera al tabla
+$(document).ready(function () {
+
+    recorrerArray();
+    modal.style.display = "none";
+});
 
 $(document).ready(function () {
 
