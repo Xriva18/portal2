@@ -19,13 +19,13 @@
     
 }
 
-.EnvabezadoTabla
+.EncabezadoTabla
 {
-    background-color: #59ab6e; 
-    border: 1px solid #2b4d33; 
     width: 10px; 
     height:15px; 
-    color: white; 
+    border: 1px solid #2b4d33 !important; 
+    color: rgb(255, 255, 255) !important; 
+    background-color: #59ab6e !important; 
     text-align: center;
 }
 
