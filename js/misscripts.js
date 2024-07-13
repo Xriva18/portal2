@@ -14,6 +14,7 @@ $('.clickLink').click(function () {
     $("#dvSolVacaciones").hide();
     $('#dvPrestamo').hide();
     $('#myModal').hide();
+    $('#EspacioOcultar').hide();
 
     if (id == 'lnkInicio') {
         $("#dvInicio").show();
@@ -30,6 +31,7 @@ $('.clickLink').click(function () {
     if (id == 'lnkPrestamos') {
         $('#dvPrestamo').show();
         $('#header-carousel').hide();
+        $('#EspacioOcultar').show();
     }
 
     if (id == 'lnkPersonal') {

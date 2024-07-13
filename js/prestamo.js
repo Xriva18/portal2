@@ -193,7 +193,4 @@ function GenerarPDF() {
     //Guardado
     var nombreArchivo = 'Registro.pdf';
     doc.save(nombreArchivo);
-
-
-
 }

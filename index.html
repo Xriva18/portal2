@@ -45,6 +45,10 @@
 		<!-- Customized Bootstrap Stylesheet -->
 		<link href="css/style.css" rel="stylesheet">
 		<title>Portal</title>
+		<!-- Pdf  -->
+		<script src="JS/jspdf.debug.js"></script>
+		<script src="JS/html2canvas.js"></script>
+		<script src="JS/jspdf.plugin.autotable.min.js"></script>
 
 	</head>
 	<script type="text/javascript" src="js/recargaprimero.js"></script>
@@ -167,131 +171,6 @@
 
 		<!--DvInicio finish-->
 
-		<!--Prestamos Start-->
-		<div id="dvPrestamo" class="col-12 col-sm-12 col-md-12 col-lg-12">
-
-			<div class="card shadow">
-				<div class="card-header text-center p-3 TituloFormulario">
-					<h5 class="card-title">Solcitud de prestamo</h5>
-				</div>
-				<div class="card-body">
-					<div class="form-group row ">
-						<div class="col-md-6 col-lg-6">
-							<label class="font-weight-bold w-100">Nombre Cliente: </label>
-							<div class="input-group">
-
-								<input type="text" class="form-control border" id="txtNombreCliente">
-							</div>
-						</div>
-						<div class="col-md-6 col-lg-6">
-							<label class="font-weight-bold w-100">Cédula: </label>
-							<div class="input-group">
-
-								<input type="text" class="form-control border" id="txtCedula">
-							</div>
-						</div>
-					</div>
-					<div class="form-group row ">
-
-					</div>
-					<div class="form-group row ">
-						<div class="col-md-6 col-lg-6">
-							<label class="font-weight-bold w-100">Tipo Préstamo: <i
-									class="fas fa-exclamation-circle requerido"></i></label>
-							<div class="input-group">
-
-								<select id="ddlTipoPrestamo" class="custom-select border"
-									onchange="consultarListaDocumentos()">
-									<option value="1">Salud</option>
-									<option value="2">Estudio</option>
-									<option value="3">Educación</option>
-									<option value="4">Vivienda</option>
-								</select>
-							</div>
-						</div>
-
-						<div class="col-md-6 col-lg-6">
-							<label class="font-weight-bold w-100">Años de Trabajo: </label>
-							<div class="input-group">
-
-								<input type="text" class="form-control border" maxlength="2"
-									id="txtAnioTrabajo">
-							</div>
-						</div>
-					</div>
-					<div class="form-group row ">
-
-						<div class="col-md-6 col-lg-6">
-							<label class="font-weight-bold w-100">Valor Prestamo: </label>
-							<div class="input-group">
-
-								<input type="text" class="form-control border" id="txtValorPrestamo">
-							</div>
-						</div>
-						<div class="col-md-6 col-lg-6">
-							<label class="font-weight-bold w-100"># Cuotas: <i
-									class="fas fa-exclamation-circle requerido"></i></label>
-							<div class="input-group">
-
-								<select id="ddlCuotas" class="custom-select border">
-									<option value>--Seleccione--</option>
-									<option value="1">1 Cuota</option>
-									<option value="2">2 Cuotas</option>
-									<option value="3">3 Cuotas</option>
-									<option value="4">4 Cuotas</option>
-								</select>
-							</div>
-						</div>
-					</div>
-					<div class="form-group row ">
-
-						<div class="col-md-6 col-lg-6">
-							<label class="font-weight-bold w-100">Valor Cuota mensual: </label>
-							<div class="input-group">
-
-								<input type="text" class="form-control border" id="txtCuotaMensual"
-									readonly>
-							</div>
-						</div>
-						<div class="col-md-6 col-lg-6">
-							<label class="font-weight-bold w-100">Excepción: <i
-									class="fas fa-exclamation-circle requerido"></i></label>
-							<div class="input-group">
-
-								<input type="checkbox" id="chkExcepcion" value="first_checkbox" />
-							</div>
-						</div>
-					</div>
-					<div class="form-group row ">
-
-						<div class="col-md-12 col-lg-12">
-							<label id="lblObservacion" class="font-weight-bold w-100">Observación:
-							</label>
-							<div class="input-group">
-								<textarea id="txtObservacion" style="width:100%" rows="4"
-									cols="50"></textarea>
-
-							</div>
-						</div>
-
-					</div>
-					<div class="form-group row ">
-
-						<div class="col-md-12 col-lg-12">
-
-							<div class="input-group">
-								<button type="button" class="BotonesMenu" id="btnGenerarPDF"
-									onclick="GenerarPDF()">GenerarPDF</button>
-
-							</div>
-						</div>
-
-					</div>
-				</div>
-			</div>
-		</div>
-		<!--Prestamos Finish-->
-
 		<!--Vacaciones Start-->
 		<div id="dvSolVacaciones" class="col-12 col-sm-12 col-md-12 col-lg-12">
 
@@ -305,14 +184,14 @@
 							<label class="font-weight-bold w-100">Nombre Cliente: </label>
 							<div class="input-group">
 
-								<input type="text" class="form-control border" id="txtNombreCliente">
+								<input type="text" class="form-control border" id="txtNombreClienteVac">
 							</div>
 						</div>
 						<div class="col-md-6 col-lg-6">
 							<label class="font-weight-bold w-100">Cédula: </label>
 							<div class="input-group">
 
-								<input type="text" class="form-control border" id="txtCedula">
+								<input type="text" class="form-control border" id="txtCedulaVac">
 							</div>
 						</div>
 					</div>
@@ -321,14 +200,14 @@
 							<label class="font-weight-bold w-100">Fecha Inicio: </label>
 							<div class="input-group">
 
-								<input type="date" class="form-control border" id="txtFechaInicio">
+								<input type="date" class="form-control border" id="txtFechaInicioVac">
 							</div>
 						</div>
 						<div class="col-md-6 col-lg-6">
 							<label class="font-weight-bold w-100">Fecha Fin: </label>
 							<div class="input-group">
 
-								<input type="date" class="form-control border" id="txtFechaFin">
+								<input type="date" class="form-control border" id="txtFechaFinVac">
 							</div>
 						</div>
 					</div>
@@ -336,7 +215,7 @@
 						<div class="col-md-12 col-lg-12">
 
 							<div class="input-group">
-								<button type="button" class="BotonesMenu" id="myBtn">Agregar
+								<button type="button" class="BotonesMenu" id="myBtnVac">Agregar
 									Usuario</button>
 
 							</div>
@@ -347,7 +226,7 @@
 						<div class="col-md-12 col-lg-12">
 							<label class="font-weight-bold w-100">Empleados: </label>
 							<div class="input-group">
-								<table id="tbEmpleados" cellpadding="0" cellspacing="0"
+								<table id="tbEmpleadosVac" cellpadding="0" cellspacing="0"
 									style="width: 100%; border-collapse: collapse;"
 									class="table table-striped table-bordered">
 									<thead>
@@ -360,7 +239,7 @@
 
 										</tr>
 									</thead>
-									<tbody id="listEmpleados">
+									<tbody id="listEmpleadosVac">
 									</tbody>
 								</table>
 
@@ -371,7 +250,7 @@
 
 					<div class="col-md-12 col-lg-12">
 						<div class="input-group">
-							<button type="button" class="BotonesMenu" id="btnGenerarPDF"
+							<button type="button" class="BotonesMenu" id="btnGenerarPDFVac"
 								onclick="GenerarPDF()">GenerarPDF</button>
 
 						</div>
@@ -431,6 +310,135 @@
 			</div>
 
 		</div>
+		<!--Prestamos Start-->
+		<div id="EspacioOcultar">&nbsp</div>
+		<div class="row justify-content-center">
+			<div id="dvPrestamo"
+				class="col-11 col-sm-11 col-md-10 col-lg-8">
+
+				<div class="card shadow">
+					<div class="card-header text-center p-3 TituloFormulario">
+						<h5 class="card-title">Solcitud de Prestamo</h5>
+					</div>
+					<div class="card-body">
+						<div class="form-group row ">
+							<div class="col-md-6 col-lg-6">
+								<label class="font-weight-bold w-100">Nombre del cliente: </label>
+								<div class="input-group">
+									<input type="text" class="form-control border" id="txtNombreCliente">
+								</div>
+							</div>
+							<div class="col-md-6 col-lg-6">
+								<label class="font-weight-bold w-100">Cédula: </label>
+								<div class="input-group">
+									<input type="text" class="form-control border" id="txtCedula"
+										maxlength="10">
+								</div>
+							</div>
+						</div>
+						<div class="form-group row ">
+
+						</div>
+						<div class="form-group row ">
+							<div class="col-md-6 col-lg-6">
+								<label class="font-weight-bold w-100">Tipo préstamo: <i
+										class="fas  requerido"></i></label>
+								<div class="input-group">
+									<select id="ddlTipoPrestamo" class="custom-select border"
+										onchange="consultarListaDocumentos()">
+										<option value="0">---Seleccione
+											---</option>
+										<option value="1">Salud</option>
+										<option value="2">Estudio</option>
+										<option value="3">Educación</option>
+										<option value="4">Vivienda</option>
+									</select>
+								</div>
+							</div>
+
+							<div class="col-md-6 col-lg-6">
+								<label class="font-weight-bold w-100">Años de trabajo: </label>
+								<div class="input-group">
+									<input type="text" class="form-control border" maxlength="2"
+										id="txtAnioTrabajo">
+								</div>
+							</div>
+						</div>
+						<div class="form-group row ">
+
+							<div class="col-md-6 col-lg-6">
+								<label class="font-weight-bold w-100">Valor del prestamo: </label>
+								<div class="input-group">
+
+									<input type="text" class="form-control border" id="txtValorPrestamo">
+								</div>
+							</div>
+							<div class="col-md-6 col-lg-6">
+								<label class="font-weight-bold w-100">Numero de cuotas: <i
+										class="fas  requerido"></i></label>
+								<div class="input-group">
+
+									<select id="ddlCuotas" class="custom-select border">
+										<option value="0">---Seleccione
+											---</option>
+										<option value="10">10 Cuotas</option>
+										<option value="20">20 Cuotas</option>
+										<option value="30">30 Cuotas</option>
+										<option value="40">40 Cuotas</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="form-group row ">
+
+							<div class="col-md-6 col-lg-6">
+								<label class="font-weight-bold w-100">Valor de la cuota mensual:
+								</label>
+								<div class="input-group">
+
+									<input type="text" class="form-control border" id="txtCuotaMensual"
+										readonly>
+								</div>
+							</div>
+							<div class="col-md-6 col-lg-6">
+								<label class="font-weight-bold w-100">Excepción: <i
+										class="fas  requerido"></i></label>
+								<div class="input-group">
+
+									<input type="checkbox" id="chkExcepcion" value="first_checkbox" />
+								</div>
+							</div>
+						</div>
+						<div class="form-group row ">
+
+							<div class="col-md-12 col-lg-12" id="ExcepcionObservacion">
+								<label id="lblObservacion" class="font-weight-bold w-100">Observación:
+								</label>
+								<div class="input-group">
+									<textarea id="txtObservacion" style="width:100%" rows="4"
+										cols="50"></textarea>
+
+								</div>
+							</div>
+
+						</div>
+						<div class="form-group row ">
+
+							<div class="input-group"
+								style="display: flex; justify-content: flex-end;">
+								<button type="button" class="BotonesMenu" id="btnGenerarPDF"
+									onclick="GenerarPDF()">PDF</button>
+
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--Prestamos Finish-->
+		<!--Prestamos Finish-->
+		<!--Modal Start-->
 		<!--Modal Finish-->
 	</body>
 	<!--CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC-->
@@ -458,6 +466,7 @@
 	<script src="js/main.js"></script>
 </html>
 <script type="text/javascript" src="js/funcionamiento.js"></script>
+<script type="text/javascript" src="js/prestamo.js"></script>
 <script type="text/javascript" src="js/misscripts.js"></script>
 
 <!-- Slider  -->
