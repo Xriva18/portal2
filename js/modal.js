@@ -1,4 +1,5 @@
 //Detalles
+$("#dvDetallesMol").hide();
 $("#chkDetallesMol").change(function () {
     if (this.checked) {
         $("#dvDetallesMol").show();
@@ -38,9 +39,5 @@ $('#selComputadoraMol').change(function () {
         $("#previa").attr("src", "img/imagen9.jpg");
         return;
 
-    }
-    if ($(this).val() == '6') {
-        $("#previa").attr("src", "img/imagen10.jpg");
-        return;
     }
 });
