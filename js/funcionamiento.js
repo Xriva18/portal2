@@ -53,9 +53,25 @@ function seleccionarRow(idRegistro) {
 //    modal.style.display = "none";
 //}
 
+//Guarda y agrega
+function GuardarUsuarioMantenimiento() {
+
+    users.push({
+        "id": users.length + 1,
+        "name": $('#txtModNombreUsuario').val(),
+        "fecha": $('#txtFechaSolicitud').val(),
+        "tipo": $('#selMantenimientoMol').val(),
+        "debe": $('#txtDebeMol').val()
+    });
+    recorrerArray();
+    swal('Mantenimiento Guardado');
+    modal.style.display = "none";
+    return;
+}
+
+
 //Apoarece d eprimera al tabla
 $(document).ready(function () {
-
     recorrerArray();
     modal.style.display = "none";
 });

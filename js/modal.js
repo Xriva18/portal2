@@ -57,9 +57,11 @@ function CalcularDebe() {
 function GuardarUsuarioMantenimiento() {
 
     users.push({
-        "id": users.length + 1, "name": $('#txtModNombreUsuario').val(),
-        "age": $('#txtModEdadUsuario').val(),
-        "tipo": $('#txtModOcupacionUsuario').val()
+        "id": users.length + 1,
+        "name": $('#txtModNombreUsuario').val(),
+        "fecha": $('#txtFechaSolicitud').val(),
+        "tipo": $('#selMantenimientoMol').val(),
+        "debe": $('#txtDebeMol').val()
     });
     recorrerArray();
     swal('Mantenimiento Guardado');
