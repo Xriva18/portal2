@@ -53,21 +53,6 @@ function seleccionarRow(idRegistro) {
 //    modal.style.display = "none";
 //}
 
-//Guarda y agrega
-function GuardarUsuarioMantenimiento() {
-
-    users.push({
-        "id": users.length + 1,
-        "name": $('#txtModNombreUsuario').val(),
-        "fecha": $('#txtFechaSolicitud').val(),
-        "tipo": $('#selMantenimientoMol').val(),
-        "debe": $('#txtDebeMol').val()
-    });
-    recorrerArray();
-    swal('Mantenimiento Guardado');
-    modal.style.display = "none";
-    return;
-}
 
 
 //Apoarece d eprimera al tabla
@@ -161,7 +146,7 @@ $("#ddlCuotas").change(function () {
 
 
 
-/*
+
 // Get the modal
 var modal = document.getElementById("myModal");
 
@@ -173,6 +158,7 @@ var span = document.getElementsByClassName("close")[0];
 
 // When the user clicks the button, open the modal 
 btn.onclick = function () {
+    alert($('#txtFechaSolicitud').val());
     modal.style.display = "block";
 }
 
