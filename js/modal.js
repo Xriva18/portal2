@@ -41,3 +41,28 @@ $('#selComputadoraMol').change(function () {
 
     }
 });
+
+
+//Calculo d eloq ue se debe
+
+function CalcularDebe() {
+    if ($('#txtCostoMol').val() != '' && $('#txtAbonoMol').val() != '') {
+        var Resultado = parseFloat($('#txtCostoMol').val()) - parseFloat($('#txtAbonoMol').val());
+        $('#txtDebeMol').val(Resultado);
+    }
+}
+
+
+//Guarda y agrega
+function GuardarUsuarioMantenimiento() {
+
+    users.push({
+        "id": users.length + 1, "name": $('#txtModNombreUsuario').val(),
+        "age": $('#txtModEdadUsuario').val(),
+        "tipo": $('#txtModOcupacionUsuario').val()
+    });
+    recorrerArray();
+    swal('Mantenimiento Guardado');
+    modal.style.display = "none";
+    return;
+}

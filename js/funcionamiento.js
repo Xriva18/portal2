@@ -42,16 +42,16 @@ function seleccionarRow(idRegistro) {
 }
 
 //Guarda y agrega
-function GuardarUsuario() {
-    alert("Usuario guardado");
-    users.push({
-        "id": users.length + 1, "name": $('#txtModNombreUsuario').val(),
-        "age": $('#txtModEdadUsuario').val(),
-        "tipo": $('#txtModOcupacionUsuario').val()
-    });
-    recorrerArray();
-    modal.style.display = "none";
-}
+//function GuardarUsuario() {
+//    alert("Usuario guardado");
+//    users.push({
+//        "id": users.length + 1, "name": $('#txtModNombreUsuario').val(),
+//        "age": $('#txtModEdadUsuario').val(),
+//        "tipo": $('#txtModOcupacionUsuario').val()
+//    });
+//    recorrerArray();
+//    modal.style.display = "none";
+//}
 
 //Apoarece d eprimera al tabla
 $(document).ready(function () {

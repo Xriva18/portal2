@@ -160,15 +160,21 @@
 					<div class=" col-md-6">
 						<label class="font-weight-bold w-100">Debe:</label>
 						<div class="input-group">
-							<input type="text" class="form-control border" id="txtDebeMol">
+							<input type="text" class="form-control border" id="txtDebeMol" readonly>
+							<label class="font-weight-bold w-100">&nbsp</label>
+							<div style="display: flex; justify-content: flex-end;">
+								<button type="button" class="BotonesMenu" id="btnGuardarSolicitud"
+									onclick="GuardarUsuarioMantenimiento()">Guardar</button>
+							</div>
+
 						</div>
 
 					</div>
 					<div class=" col-md-6">
 						<label class="font-weight-bold w-100">&nbsp</label>
-						<div style="display: flex; justify-content: flex-end;">
+						<div>
 							<button type="button" class="BotonesMenu" id="btnGuardarSolicitud"
-								onclick="GuardarUsuario()">Guardar</button>
+								onclick="CalcularDebe()">Calcular</button>
 						</div>
 
 					</div>
