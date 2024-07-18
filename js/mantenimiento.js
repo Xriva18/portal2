@@ -1,6 +1,27 @@
 
 //Guarda y agrega
 
+function seleccionSucursal() {
+    var sucursal;
+    var valorSeleccionado = $('#selSurcursal').val(); // Asegúrate de que el id esté correctamente escrito
+
+    switch (valorSeleccionado) {
+        case '1':
+            sucursal = "Salcedo";
+            break;
+        case '2':
+            sucursal = "Latacunga";
+            break;
+        case '3':
+            sucursal = "Ambato";
+            break;
+        default:
+            sucursal = "No seleccionado"; // O cualquier valor por defecto que desees
+    }
+
+    return sucursal;
+}
+
 
 
 function tipoMantenimiento() {
@@ -21,7 +42,17 @@ function GuardarUsuarioMantenimiento() {
         "name": $('#txtNombreCliente').val(),
         "fecha": $('#txtFechaSolicitud').val(),
         "tipo": tipoMantenimiento(),
-        "debe": $('#txtDebeMol').val()
+        "debe": $('#txtDebeMol').val(),
+        "sucursal": seleccionSucursal(),
+        "direccion": $('#txtDireccion').val(),
+        "cedula": $('#txtCedula').val(),
+        "computadora": $('#txtComputadora').val(),
+        "modelo": $('#txtModelo').val(),
+        "mantenimieto": tipoMantenimiento(),
+        "recibe": $('#txtRecibe').val(),
+        "detalles": $('#txtDetalles').val(),
+        "costo": $('#txtCosto').val(),
+        "abono": $('#txtAbono').val()
     });
     recorrerArray();
     //alert($('#txtFechaSolicitud').val());
@@ -32,12 +63,16 @@ function GuardarUsuarioMantenimiento() {
 
 //Usarios Recistrados
 var users = [
-    { id: 1, name: 'John', fecha: '2024-06-08', tipo: 'Preventivo', debe: '50.86' },
-    { id: 2, name: 'Lenny', fecha: '2024-12-03', tipo: 'Preventivo', debe: '25.50' },
-    { id: 3, name: 'Andrew', fecha: '2024-15-04', tipo: 'Correctivo', debe: '32.50' },
-    { id: 4, name: 'Peter', fecha: '2024-16-08', tipo: 'Correctivo', debe: '15.80' },
-    { id: 5, name: 'Anna', fecha: '2024-18-09', tipo: 'Preventivo', debe: '13.96' },
-    { id: 6, name: 'Albert', fecha: '2024-20-17', tipo: 'Preventivo', debe: '21.75' },
+    {
+        id: 1, name: 'John', cedula: '05032146987', fecha: '2024-06-08', sucursal: 'Salcedo', direccion: 'Av. America',
+        tipo: 'Preventivo', computadora: 'Dell', modelo: '1234fx', mantenimieto: 'Preventivo',
+        recibe: 'Juan', detalles: '', costo: '50.36', abono: '25.00', debe: '25.36'
+    },
+    {
+        id: 2, name: 'Lucas', cedula: '05522146987', fecha: '2024-05-08', sucursal: 'Latacunga', direccion: 'Av. America',
+        tipo: 'Preventivo', debe: '50.86', computadora: 'Hp', modelo: 'D0034fx', mantenimieto: 'Preventivo',
+        recibe: 'Juan', detalles: '', costo: '50.36', abono: '25.00', debe: '25.36'
+    },
 ]
 
 //Recorre apra agregar en lla tabla yd efine las columnas
