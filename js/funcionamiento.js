@@ -1,35 +1,35 @@
 
-//Usarios Recistrados
-var users = [
-    { id: 1, name: 'John', date: "20/05/24", tipo: 'Preventivo', debe: '50.86' },
-    { id: 2, name: 'Lenny', date: "15/06/24", tipo: 'Preventivo', debe: '25.50' },
-    { id: 3, name: 'Andrew', date: "15/06/24", tipo: 'Correctivo', debe: '32.50' },
-    { id: 4, name: 'Peter', date: "13/07/24", tipo: 'Correctivo', debe: '15.80' },
-    { id: 5, name: 'Anna', date: "13/07/24", tipo: 'Preventivo', debe: '13.96' },
-    { id: 6, name: 'Albert', date: "13/07/24", tipo: 'Preventivo', debe: '21.75' },
-]
-
-//Recorre apra agregar en lla tabla yd efine las columnas
-function recorrerArray() {
-    $('#listEmpleados').empty();
-    for (var i = 0; i < users.length; i++) {
-        var Botones = '<td width="5%" style="text-align:center;">' +
-            '<div class="CeldasTabla" onclick="seleccionarRow(\'' + users[i].id + '\');">' +
-            '<i class="bi bi-printer"></i>' +
-            '</div>' +
-            '</td>';
-        newTr = '<tr class="text-center">' +
-
-            '<td>' + users[i].id + '</td>' +
-            '<td>' + users[i].name + '</td>' +
-            '<td>' + users[i].date + '</td>' +
-            '<td>' + users[i].tipo + '</td>' +
-            '<td>' + users[i].debe + '</td>' +
-            Botones +
-            '</tr>';
-        $('#listEmpleados').append(newTr);
-    }
-}
+////Usarios Recistrados
+//var users = [
+//    { id: 1, name: 'John', date: "20/05/24", tipo: 'Preventivo', debe: '50.86' },
+//    { id: 2, name: 'Lenny', date: "15/06/24", tipo: 'Preventivo', debe: '25.50' },
+//    { id: 3, name: 'Andrew', date: "15/06/24", tipo: 'Correctivo', debe: '32.50' },
+//    { id: 4, name: 'Peter', date: "13/07/24", tipo: 'Correctivo', debe: '15.80' },
+//    { id: 5, name: 'Anna', date: "13/07/24", tipo: 'Preventivo', debe: '13.96' },
+//    { id: 6, name: 'Albert', date: "13/07/24", tipo: 'Preventivo', debe: '21.75' },
+//]
+//
+////Recorre apra agregar en lla tabla yd efine las columnas
+//function recorrerArray() {
+//    $('#listEmpleados').empty();
+//    for (var i = 0; i < users.length; i++) {
+//        var Botones = '<td width="5%" style="text-align:center;">' +
+//            '<div class="CeldasTabla" onclick="seleccionarRow(\'' + users[i].id + '\');">' +
+//            '<i class="bi bi-printer"></i>' +
+//            '</div>' +
+//            '</td>';
+//        newTr = '<tr class="text-center">' +
+//
+//            '<td>' + users[i].id + '</td>' +
+//            '<td>' + users[i].name + '</td>' +
+//            '<td>' + users[i].date + '</td>' +
+//            '<td>' + users[i].tipo + '</td>' +
+//            '<td>' + users[i].debe + '</td>' +
+//            Botones +
+//            '</tr>';
+//        $('#listEmpleados').append(newTr);
+//    }
+//}
 
 
 
