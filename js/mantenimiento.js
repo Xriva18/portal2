@@ -1,5 +1,21 @@
+function getComputadoraValue() {
+    var selectedValue = $('#selComputadoraMol').val();
+    switch (selectedValue) {
+        case 'Dell':
+            return 1;
+        case 'Hp':
+            return 2;
+        case 'Asus':
+            return 3;
+        case 'MSI':
+            return 4;
+        case 'Apple':
+            return 5;
+        default:
+            return 0;
+    }
+}
 //Guarda y agrega
-
 function GuardarUsuarioMantenimiento() {
     users.push({
         "id": users.length + 1,
@@ -11,7 +27,7 @@ function GuardarUsuarioMantenimiento() {
         "computadora": $('#selComputadoraMol').val(),
         "modelo": $('#txtModeloMol').val(),
         "recibe": $('#selRecibeMol').val(),
-        "img": $('#previa').val(),
+        "img": getComputadoraValue(),
         "detalles": $('#txtDetallesModal').val(),
         "costo": $('#txtCostoMol').val(),
         "debe": $('#txtDebeMol').val(),
@@ -19,7 +35,7 @@ function GuardarUsuarioMantenimiento() {
         "direccion": $('#txtDireccion').val()
     });
     recorrerArray();
-    alert($('#txtRecibe').val());
+    //alert($('#txtRecibe').val());
     swal('Mantenimiento Guardado');
     modal.style.display = "none";
     return;
@@ -44,7 +60,7 @@ function recorrerArray() {
     $('#listEmpleados').empty();
     for (var i = 0; i < users.length; i++) {
         var Botones = '<td width="5%" style="text-align:center;">' +
-            '<div class="CeldasTabla" onclick="mostrarDatosUsuarioPorId(\'' + users[i].id + '\');">' +
+            '<div class="CeldasTabla" onclick="generarPDF(\'' + users[i].id + '\');">' +
             '<i class="bi bi-printer"></i>' +
             '</div>' +
             '</td>';
@@ -203,7 +219,7 @@ function seleccionarRow(idRegistro) {
 
 
 
-function mostrarDatosUsuarioPorId(idBuscado) {
+function generarPDF(idBuscado) {
 
     alert(
         "ID: " + users[idBuscado - 1].id +
@@ -216,11 +232,24 @@ function mostrarDatosUsuarioPorId(idBuscado) {
         "\nCedula: " + users[idBuscado - 1].cedula +
         "\nComputadora: " + users[idBuscado - 1].computadora +
         "\nModelo: " + users[idBuscado - 1].modelo +
-        "\nImagen: " + users[idBuscado - 1].img +
+        "\nImagen: " + users[idBuscado - 1].img +//me dice ques numero de iamgen es retasarle 1
         "\nRecibe: " + users[idBuscado - 1].recibe +
         "\nDetalles: " + users[idBuscado - 1].detalles +
         "\nCosto: " + users[idBuscado - 1].costo +
         "\nAbono: " + users[idBuscado - 1].abono
     );
+
+    var doc = new jsPDF();
+    var y = 20;
+    var x = 20;
+    var margenX = 65;
+    doc.setFont('HELVETICA');
+    doc.setFontStyle('bold');
+    doc.setFontSize(18);
+    doc.text(76, y, 'Regsitro Mantenimiento');
+
+
+    var nombreArchivo = 'Mantenimiento.pdf';
+    doc.save(nombreArchivo);
 }
 
