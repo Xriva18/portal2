@@ -34,12 +34,7 @@
 
 
 
-//Sauldar
-function seleccionarRow(idRegistro) {
-    var seleccionado = users.filter(x => x.id == idRegistro);
 
-    alert("Hola : " + seleccionado[0].name + " debe: " + seleccionado[0].email);
-}
 
 //Guarda y agrega
 //function GuardarUsuario() {

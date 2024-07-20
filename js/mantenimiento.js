@@ -1,60 +1,25 @@
 //Guarda y agrega
 
-function seleccionSucursal() {
-    var sucursal;
-    var valorSeleccionado = $('#selSurcursal').val(); // Asegúrate de que el id esté correctamente escrito
-
-    switch (valorSeleccionado) {
-        case '1':
-            sucursal = "Salcedo";
-            break;
-        case '2':
-            sucursal = "Latacunga";
-            break;
-        case '3':
-            sucursal = "Ambato";
-            break;
-        default:
-            sucursal = "No seleccionado"; // O cualquier valor por defecto que desees
-    }
-
-    return sucursal;
-}
-
-
-
-function tipoMantenimiento() {
-    var tipo
-    if ($('#selMantenimientoMol').val() == '1') {
-        tipo = "Preventivo";
-        return tipo;
-    }
-    if ($('#selMantenimientoMol').val() == '2') {
-        tipo = "Correctivo";
-        return tipo;
-    }
-
-}
 function GuardarUsuarioMantenimiento() {
     users.push({
         "id": users.length + 1,
         "name": $('#txtNombreCliente').val(),
-        "fecha": $('#txtFechaSolicitud').val(),
-        "tipo": tipoMantenimiento(),
-        "debe": $('#txtDebeMol').val(),
-        "sucursal": seleccionSucursal(),
-        "direccion": $('#txtDireccion').val(),
         "cedula": $('#txtCedula').val(),
-        "computadora": $('#txtComputadora').val(),
-        "modelo": $('#txtModelo').val(),
-        "mantenimieto": tipoMantenimiento(),
-        "recibe": $('#txtRecibe').val(),
-        "detalles": $('#txtDetalles').val(),
-        "costo": $('#txtCosto').val(),
-        "abono": $('#txtAbono').val()
+        "fecha": $('#txtFechaSolicitud').val(),
+        "sucursal": $('#selSurcursal').val(),
+        "tipo": $('#selMantenimientoMol').val(),
+        "computadora": $('#selComputadoraMol').val(),
+        "modelo": $('#txtModeloMol').val(),
+        "recibe": $('#selRecibeMol').val(),
+        "img": $('#previa').val(),
+        "detalles": $('#txtDetallesModal').val(),
+        "costo": $('#txtCostoMol').val(),
+        "debe": $('#txtDebeMol').val(),
+        "abono": $('#txtAbonoMol').val(),
+        "direccion": $('#txtDireccion').val()
     });
     recorrerArray();
-    //alert($('#txtFechaSolicitud').val());
+    alert($('#txtRecibe').val());
     swal('Mantenimiento Guardado');
     modal.style.display = "none";
     return;
@@ -64,13 +29,13 @@ function GuardarUsuarioMantenimiento() {
 var users = [
     {
         id: 1, name: 'John', cedula: '05032146987', fecha: '2024-06-08', sucursal: 'Salcedo', direccion: 'Av. America',
-        tipo: 'Preventivo', computadora: 'Dell', modelo: '1234fx', mantenimieto: 'Preventivo',
-        recibe: 'Juan', detalles: '', costo: '50.36', abono: '25.00', debe: '25.36'
+        tipo: 'Preventivo', computadora: 'Dell', modelo: '1234fx',
+        recibe: 'Juan', detalles: '', costo: '50.36', abono: '25.00', debe: '25.36', img: '1'
     },
     {
         id: 2, name: 'Lucas', cedula: '05522146987', fecha: '2024-05-08', sucursal: 'Latacunga', direccion: 'Av. America',
-        tipo: 'Preventivo', debe: '50.86', computadora: 'Hp', modelo: 'D0034fx', mantenimieto: 'Preventivo',
-        recibe: 'Juan', detalles: '', costo: '50.36', abono: '25.00', debe: '25.36'
+        tipo: 'Preventivo', debe: '50.86', computadora: 'Hp', modelo: 'D0034fx',
+        recibe: 'Juan', detalles: '', costo: '50.36', abono: '25.00', debe: '25.36', img: '2'
     },
 ]
 
@@ -79,7 +44,7 @@ function recorrerArray() {
     $('#listEmpleados').empty();
     for (var i = 0; i < users.length; i++) {
         var Botones = '<td width="5%" style="text-align:center;">' +
-            '<div class="CeldasTabla" onclick="seleccionarRow(\'' + users[i].id + '\');">' +
+            '<div class="CeldasTabla" onclick="mostrarDatosUsuarioPorId(\'' + users[i].id + '\');">' +
             '<i class="bi bi-printer"></i>' +
             '</div>' +
             '</td>';
@@ -229,9 +194,33 @@ function CalcularDebe() {
     }
 }
 
+//Sauldar
+function seleccionarRow(idRegistro) {
+    var seleccionado = users.filter(x => x.id == idRegistro);
+
+    alert("Hola : " + seleccionado[0].name + " debe: " + seleccionado[0].debe);
+}
 
 
 
+function mostrarDatosUsuarioPorId(idBuscado) {
 
-
+    alert(
+        "ID: " + users[idBuscado - 1].id +
+        "\nName: " + users[idBuscado - 1].name +
+        "\nFecha: " + users[idBuscado - 1].fecha +
+        "\nTipo: " + users[idBuscado - 1].tipo +
+        "\nDebe: " + users[idBuscado - 1].debe +
+        "\nSucursal: " + users[idBuscado - 1].sucursal +
+        "\nDireccion: " + users[idBuscado - 1].direccion +
+        "\nCedula: " + users[idBuscado - 1].cedula +
+        "\nComputadora: " + users[idBuscado - 1].computadora +
+        "\nModelo: " + users[idBuscado - 1].modelo +
+        "\nImagen: " + users[idBuscado - 1].img +
+        "\nRecibe: " + users[idBuscado - 1].recibe +
+        "\nDetalles: " + users[idBuscado - 1].detalles +
+        "\nCosto: " + users[idBuscado - 1].costo +
+        "\nAbono: " + users[idBuscado - 1].abono
+    );
+}
 
