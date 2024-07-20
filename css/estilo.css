@@ -3,6 +3,29 @@
     height:500px;
 }
 
+.modal-content {
+	top: 0;
+    max-height: 80vh; 
+    overflow-y: auto; 
+    position: relative;
+}
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+
+
 .BotonesMenu
 {
     width: 100px;
@@ -19,20 +42,20 @@
     
 }
 
-.EnvabezadoTabla
+.EncabezadoTabla
 {
-    background-color: #59ab6e; 
-    border: 1px solid #2b4d33; 
     width: 10px; 
     height:15px; 
-    color: white; 
+    border: 1px solid #2b4d33 !important; 
+    color: rgb(255, 255, 255) !important; 
+    background-color: #59ab6e !important; 
     text-align: center;
 }
 
 .CeldasTabla
 {
     text-align: center; 
-    background-color: #258622 ;
+    background-color: #59ab6e ;
     color: #fff !important;
     text-decoration: none; 
     font-family: Arial, Helvetica, sans-serif !important;

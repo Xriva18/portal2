@@ -23,8 +23,8 @@ $('.clickLink').click(function () {
         $('html, body').animate({ scrollTop: $(document).height() - $(window).height() }, 0, 'easeInOutExpo');
         return false;
     }
-    if (id == 'lnkVacaciones') {
-        $("#dvSolVacaciones").show();
+    if (id == 'lnkMantenimiento') {
+        $("#paginaMantenimientoMat").show();
         $('#header-carousel').hide();
     }
 
