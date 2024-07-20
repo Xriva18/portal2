@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Portal</title>
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/menu.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="css/estilo.css">
+		<link rel="stylesheet" type="text/css" href="css/qc.slider.css">
+		<link rel="stylesheet" type="text/css" href="css/sweetalert.css">
+		<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+		<script type="text/javascript" src="js/qcslider.jquery.js"></script>
+		<script type="text/javascript" src="js/sweetalert.js"></script>
+		<!-- Plantilla  -->
+		<link rel="apple-touch-icon" href="assets/img/apple-icon.png">
+		<link rel="shortcut icon" type="image/x-icon"
+			href="assets/img/favicon.ico">
+
+		<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+		<link rel="stylesheet" href="assets/css/templatemo.css">
+
+		<!-- Load fonts style after rendering the layout styles -->
+		<link rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
+		<link rel="stylesheet" href="assets/css/fontawesome.min.css">
+
+		<!-- Navegador Parte2 -->
+		<!-- Google Web Fonts -->
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link
+			href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+			rel="stylesheet">
+
+		<!-- Font Awesome -->
+		<link
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+			rel="stylesheet">
+
+		<!-- Libraries Stylesheet -->
+		<link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+		<link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css"
+			rel="stylesheet" />
+		<!-- Iconos -->
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+			rel="stylesheet">
+
+		<!-- Customized Bootstrap Stylesheet -->
+		<link href="css/style.css" rel="stylesheet">
+		<title>Portal</title>
+		<!-- Pdf  -->
+		<script src="JS/jspdf.debug.js"></script>
+		<script src="JS/html2canvas.js"></script>
+		<script src="JS/jspdf.plugin.autotable.min.js"></script>
+
+	</head>
+	<!--<script type="text/javascript" src="js/recargaprimero.js"></script>-->
+	<!--CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCccc-->
+	<body>
+		<!-- Solictud Mateninimento Finish -->
+		<div class="container-fluid m-4 " id="contenido">
+			<!-- Datos -->
+			<div class="row justify-content-center">
+				<div class="col-11 col-sm-11 col-md-10 col-lg-8" id="dvSolVacaciones">
+					<div class="card shadow">
+						<div class="card-header text-center p-3 TituloFormulario">
+							<h5 class="card-title">Solcitud de Mateninimento</h5>
+						</div>
+						<div class="card-body">
+							<div class="row form-group">
+								<label class="font-weight-bold w-100">Datos del cliente
+								</label>
+								<div class=" col-md-6 ">
+									<label class="font-weight-bold w-100">Nombre: </label>
+									<div class="input-group">
+										<input type="text" class="form-control border" id="txtNombreCliente">
+									</div>
+								</div>
+								<div class="col-md-6 ">
+									<label class="font-weight-bold w-100">Cédula: </label>
+									<div class="input-group">
+										<input type="text" class="form-control border" id="txtCedula">
+									</div>
+								</div>
+							</div>
+
+							<div class="form-group row">
+								<div class=" col-md-6">
+									<label class="font-weight-bold w-100">Fecha de la
+										solictud:</label>
+									<div class="input-group">
+										<input type="date" class="form-control border" id="txtFechaSolicitud">
+									</div>
+								</div>
+								<div class=" col-md-6">
+									<label class="font-weight-bold w-100">Sucursal:</label>
+									<div class="input-group">
+										<select class="custom-select form-control border" id="selSurcursal">
+											<option value="0">---Seleccione
+												---</option>
+											<option value="1">Salcedo</option>
+											<option value="2">Latacunga</option>
+											<option value="3">Ambato</option>
+										</select>
+									</div>
+								</div>
+							</div>
+
+							<div class="form-group row">
+								<label
+									class="col-lg-2 col-form-label font-weight-bold">Dirección:</label>
+								<div class="col-lg-10">
+									<div class="input-group">
+										<input type="text" class="form-control border" id="txtDireccion">
+									</div>
+								</div>
+							</div>
+
+							<div class="form-group row ">
+								<div class="col-12" style="display: flex; justify-content: flex-end;">
+									<label
+										class="col-form-label font-weight ">Mantenimiento</label>
+									<button type="button" class="BotonesMenu m-1"
+										id="myBtn">Agregar</button>
+								</div>
+							</div>
+							<!-- Finish datos -->
+							<!-- Tabla de datos -->
+							<div class="form-group row ">
+								<div class="col12">
+									<label class="font-weight-bold w-100">Mantenimientos: </label>
+									<div class="input-group">
+
+										<table id="tbEmpleados" cellpadding="0" cellspacing="0"
+											style="width: 100%; border-collapse: collapse;"
+											class="table table-striped table-bordered">
+											<thead>
+												<tr>
+													<th class="EncabezadoTabla">No.</th>
+													<th class="EncabezadoTabla">Nombre</th>
+													<th class="EncabezadoTabla">Fecha</th>
+													<th class="EncabezadoTabla">Tipo</th>
+													<th class="EncabezadoTabla">Debe</th>
+													<th class="EncabezadoTabla">Imprimir</th>
+
+												</tr>
+											</thead>
+											<tbody id="listEmpleados">
+											</tbody>
+										</table>
+
+									</div>
+								</div>
+
+							</div>
+
+							<div class="row">
+								&nbsp
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<!-- Solictud Mateninimento Finish -->
+
+	<!-- Modal content -->
+	<div id="myModal" class="modal "> <!--Aqui la clase modal-->
+
+		<div class="modal-content col-7">
+			<span class="close">&times;</span>
+
+			<div class="row form-group">
+				<label class="font-weight-bold w-100 text-center">Solictud de Mantenimiento
+				</label>
+				<div class="col-md-6">
+					<label class="font-weight-bold w-100">Computadora:</label>
+					<div class="input-group">
+						<select class="custom-select form-control border" id="selComputadoraMol">
+							<option value="0">---Seleccione
+								---</option>
+							<option value="Dell">Dell</option>
+							<option value="Hp">Hp</option>
+							<option value="Asus">Asus</option>
+							<option value="MSI">MSI</option>
+							<option value="Apple">Apple</option>
+						</select>
+					</div>
+				</div>
+				<div class="col-md-6 ">
+					<label class="font-weight-bold w-100">Modelo: </label>
+					<div class="input-group">
+						<input type="text" class="form-control border" id="txtModeloMol">
+					</div>
+				</div>
+			</div>
+
+			<div class="form-group row">
+				<div class=" col-md-6">
+					<label class="font-weight-bold w-100">Tipo de mantenimiento:</label>
+					<div class="input-group">
+						<select class="custom-select form-control border"
+							id="selMantenimientoMol">
+							<option value="0">---Seleccione
+								---</option>
+							<option value="Preventivo">Preventivo</option>
+							<option value="Correctivo">Correctivo</option>
+						</select>
+					</div>
+				</div>
+				<div class=" col-md-6">
+					<label class="font-weight-bold w-100">Recibe:</label>
+					<div class="input-group">
+						<select class="custom-select form-control border" id="selRecibeMol">
+							<option value="0">---Seleccione
+								---</option>
+							<option value="Jose">Jose</option>
+							<option value="Juan">Juan</option>
+							<option value="Brenda">Brenda</option>
+							<option value="Ernesto">Ernesto</option>
+						</select>
+					</div>
+				</div>
+			</div>
+
+			<div class="form-group row justify-content-center" id="dvImagenMol">
+				<div class="col-3">
+					<img src id="previa" width="180">
+				</div>
+			</div>
+
+			<div class="form-group row">
+				<div class=" col-md-6">
+					<input type="checkbox" id="chkDetallesMol" class="border">
+					<label for="chkDetallesMol" class="checkbox-label m-1">Agregar
+						detalles</label>
+				</div>
+			</div>
+
+			<div class="form-group row" id="dvDetallesMol">
+				<label
+					class="col-lg-2 col-form-label font-weight-bold">Detalles:</label>
+				<div class="col-lg-10">
+					<textarea class="form-control border" id="txtDetallesModal"
+						style="width:100%"
+						rows="4"
+						cols="50"></textarea>
+				</div>
+			</div>
+
+			<div class="form-group row">
+				<div class=" col-md-6">
+					<label class="font-weight-bold w-100">Costo:</label>
+					<div class="input-group">
+						<input type="text" class="form-control border" id="txtCostoMol">
+					</div>
+				</div>
+				<div class=" col-md-6">
+					<label class="font-weight-bold w-100">Abona:</label>
+					<div class="input-group">
+						<input type="text" class="form-control border" id="txtAbonoMol">
+					</div>
+				</div>
+			</div>
+			<div class="form-group row">
+				<div class=" col-md-6">
+					<label class="font-weight-bold w-100">Debe:</label>
+					<div class="input-group">
+						<input type="text" class="form-control border" id="txtDebeMol" readonly>
+						<label class="font-weight-bold w-100">&nbsp</label>
+						<div style="display: flex; justify-content: flex-end;">
+							<button type="button" class="BotonesMenu" id="btnGuardarSolicitud"
+								onclick="GuardarUsuarioMantenimiento()">Guardar</button>
+						</div>
+
+					</div>
+
+				</div>
+				<div class=" col-md-6">
+					<label class="font-weight-bold w-100">&nbsp</label>
+					<div>
+						<button type="button" class="BotonesMenu" id="btnGuardarSolicitud"
+							onclick="CalcularDebe()">Calcular</button>
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+		<!-- Modal content finish-->
+
+	</body>
+	<!--CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC-->
+	<script src="assets/js/jquery-1.11.0.min.js"></script>
+	<script src="assets/js/jquery-migrate-1.2.1.min.js"></script>
+	<script src="assets/js/bootstrap.bundle.min.js"></script>
+	<script src="assets/js/templatemo.js"></script>
+	<script src="assets/js/custom.js"></script>
+	<!-- JavaScrit Navegador2 -->
+	<!-- JavaScript Libraries -->
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+	<script src="lib/easing/easing.min.js"></script>
+	<script src="lib/owlcarousel/owl.carousel.min.js"></script>
+	<script src="lib/tempusdominus/js/moment.min.js"></script>
+	<script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+	<script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+	<!-- Contact Javascript File -->
+	<script src="mail/jqBootstrapValidation.min.js"></script>
+	<script src="mail/contact.js"></script>
+
+	<!-- Template Javascript -->
+	<script src="js/main.js"></script>
+</html>
+<script type="text/javascript" src="js/funcionamiento.js"></script>
+<script type="text/javascript" src="js/prestamo.js"></script>
+<script type="text/javascript" src="js/misscripts.js"></script>
+<!--><script type="text/javascript" src="js/modal.js"></script>-->
+<script type="text/javascript" src="js/mantenimiento.js"></script>
+
+<!-- Slider  -->
