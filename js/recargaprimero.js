@@ -8,6 +8,7 @@ $(document).ready(function () {
     $('#dvPrestamo').hide();
     $('#EspacioOcultar').hide();
     $("#ExcepcionObservacionPrest").hide();
+    $("#paginaMantenimientoMat").hide();
     $('html, body').animate({ scrollTop: $(document).height() - $(window).height() }, 0, 'easeInOutExpo');
     return false;
 });
