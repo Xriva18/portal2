@@ -59,11 +59,11 @@
 	<!--CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCccc-->
 	<body>
 		<!-- Solictud Mateninimento Finish -->
-		<div class="container-fluid">
-			<div class="container-fluid m-4 " id="contenido">
+		<div class="container-fluid " id="paginaMantenimientoMat">
+			<div class="container-fluid m-4 " id="contenidoMat">
 				<!-- Datos -->
 				<div class="row justify-content-center">
-					<div class="col-11 col-sm-11 col-md-10 col-lg-8" id="dvSolVacaciones">
+					<div class="col-11 col-sm-11 col-md-10 col-lg-8" id="dvSolVacacionesMat">
 						<div class="card shadow">
 							<div class="card-header text-center p-3 TituloFormulario">
 								<h5 class="card-title">Solcitud de Mateninimento</h5>
@@ -75,13 +75,14 @@
 									<div class=" col-md-6 ">
 										<label class="font-weight-bold w-100">Nombre: </label>
 										<div class="input-group">
-											<input type="text" class="form-control border" id="txtNombreCliente">
+											<input type="text" class="form-control border"
+												id="txtNombreClienteMat">
 										</div>
 									</div>
 									<div class="col-md-6 ">
 										<label class="font-weight-bold w-100">Cédula: </label>
 										<div class="input-group">
-											<input type="text" class="form-control border" id="txtCedula">
+											<input type="text" class="form-control border" id="txtCedulaMat">
 										</div>
 									</div>
 								</div>
@@ -92,13 +93,14 @@
 											solictud:</label>
 										<div class="input-group">
 											<input type="date" class="form-control border"
-												id="txtFechaSolicitud">
+												id="txtFechaSolicitudMat">
 										</div>
 									</div>
 									<div class=" col-md-6">
 										<label class="font-weight-bold w-100">Sucursal:</label>
 										<div class="input-group">
-											<select class="custom-select form-control border" id="selSurcursal">
+											<select class="custom-select form-control border"
+												id="selSurcursalMat">
 												<option value="0">---Seleccione
 													---</option>
 												<option value="Salcedo">Salcedo</option>
@@ -114,7 +116,7 @@
 										class="col-lg-2 col-form-label font-weight-bold">Dirección:</label>
 									<div class="col-lg-10">
 										<div class="input-group">
-											<input type="text" class="form-control border" id="txtDireccion">
+											<input type="text" class="form-control border" id="txtDireccionMat">
 										</div>
 									</div>
 								</div>
@@ -124,7 +126,7 @@
 										<label
 											class="col-form-label font-weight ">Mantenimiento</label>
 										<button type="button" class="BotonesMenu m-1"
-											id="myBtn">Agregar</button>
+											id="myBtnMat">Agregar</button>
 									</div>
 								</div>
 								<!-- Finish datos -->
@@ -134,7 +136,7 @@
 										<label class="font-weight-bold w-100">Mantenimientos: </label>
 										<div class="input-group">
 
-											<table id="tbEmpleados" cellpadding="0" cellspacing="0"
+											<table id="tbEmpleadosMat" cellpadding="0" cellspacing="0"
 												style="width: 100%; border-collapse: collapse;"
 												class="table table-striped table-bordered">
 												<thead>
@@ -148,7 +150,7 @@
 
 													</tr>
 												</thead>
-												<tbody id="listEmpleados">
+												<tbody id="listEmpleadosMat">
 												</tbody>
 											</table>
 
@@ -172,8 +174,8 @@
 	<!-- Solictud Mateninimento Finish -->
 
 	<!-- Modal content -->
-	<div class="container">
-		<div id="myModal" class="modal "> <!--Aqui la clase modal-->
+	<div class="container" id="modalMantenimientoMat">
+		<div id="myModalMat" class="modal "> <!--Aqui la clase modal-->
 			<div class="modal-content col-7">
 				<span class="close">&times;</span>
 
@@ -183,7 +185,8 @@
 					<div class="col-md-6">
 						<label class="font-weight-bold w-100">Computadora:</label>
 						<div class="input-group">
-							<select class="custom-select form-control border" id="selComputadoraMol">
+							<select class="custom-select form-control border"
+								id="selComputadoraMolMat">
 								<option value="0">---Seleccione
 									---</option>
 								<option value="Dell">Dell</option>
@@ -197,7 +200,7 @@
 					<div class="col-md-6 ">
 						<label class="font-weight-bold w-100">Modelo: </label>
 						<div class="input-group">
-							<input type="text" class="form-control border" id="txtModeloMol">
+							<input type="text" class="form-control border" id="txtModeloMolMat">
 						</div>
 					</div>
 				</div>
@@ -207,7 +210,7 @@
 						<label class="font-weight-bold w-100">Tipo de mantenimiento:</label>
 						<div class="input-group">
 							<select class="custom-select form-control border"
-								id="selMantenimientoMol">
+								id="selMantenimientoMolMat">
 								<option value="0">---Seleccione
 									---</option>
 								<option value="Preventivo">Preventivo</option>
@@ -218,7 +221,7 @@
 					<div class=" col-md-6">
 						<label class="font-weight-bold w-100">Recibe:</label>
 						<div class="input-group">
-							<select class="custom-select form-control border" id="selRecibeMol">
+							<select class="custom-select form-control border" id="selRecibeMolMat">
 								<option value="0">---Seleccione
 									---</option>
 								<option value="Jose">Jose</option>
@@ -230,25 +233,25 @@
 					</div>
 				</div>
 
-				<div class="form-group row justify-content-center" id="dvImagenMol">
+				<div class="form-group row justify-content-center" id="dvImagenMolMat">
 					<div class="col-3">
-						<img src id="previa" width="180">
+						<img src id="previaMat" width="180">
 					</div>
 				</div>
 
 				<div class="form-group row">
 					<div class=" col-md-6">
-						<input type="checkbox" id="chkDetallesMol" class="border">
+						<input type="checkbox" id="chkDetallesMolMat" class="border">
 						<label for="chkDetallesMol" class="checkbox-label m-1">Agregar
 							detalles</label>
 					</div>
 				</div>
 
-				<div class="form-group row" id="dvDetallesMol">
+				<div class="form-group row" id="dvDetallesMolMat">
 					<label
 						class="col-lg-2 col-form-label font-weight-bold">Detalles:</label>
 					<div class="col-lg-10">
-						<textarea class="form-control border" id="txtDetallesModal"
+						<textarea class="form-control border" id="txtDetallesModalMat"
 							style="width:100%"
 							rows="4"
 							cols="50"></textarea>
@@ -259,13 +262,13 @@
 					<div class=" col-md-6">
 						<label class="font-weight-bold w-100">Costo:</label>
 						<div class="input-group">
-							<input type="text" class="form-control border" id="txtCostoMol">
+							<input type="text" class="form-control border" id="txtCostoMolMat">
 						</div>
 					</div>
 					<div class=" col-md-6">
 						<label class="font-weight-bold w-100">Abona:</label>
 						<div class="input-group">
-							<input type="text" class="form-control border" id="txtAbonoMol">
+							<input type="text" class="form-control border" id="txtAbonoMolMat">
 						</div>
 					</div>
 				</div>
@@ -273,10 +276,11 @@
 					<div class=" col-md-6">
 						<label class="font-weight-bold w-100">Debe:</label>
 						<div class="input-group">
-							<input type="text" class="form-control border" id="txtDebeMol" readonly>
+							<input type="text" class="form-control border" id="txtDebeMolMat"
+								readonly>
 							<label class="font-weight-bold w-100">&nbsp</label>
 							<div style="display: flex; justify-content: flex-end;">
-								<button type="button" class="BotonesMenu" id="btnGuardarSolicitud"
+								<button type="button" class="BotonesMenu" id="btnGuardarMat"
 									onclick="GuardarUsuarioMantenimiento()">Guardar</button>
 							</div>
 
@@ -286,7 +290,7 @@
 					<div class=" col-md-6">
 						<label class="font-weight-bold w-100">&nbsp</label>
 						<div>
-							<button type="button" class="BotonesMenu" id="btnGuardarSolicitud"
+							<button type="button" class="BotonesMenu" id="btnCalcularMat"
 								onclick="CalcularDebe()">Calcular</button>
 						</div>
 

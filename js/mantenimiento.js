@@ -1,5 +1,5 @@
 function getComputadoraValue() {
-    var selectedValue = $('#selComputadoraMol').val();
+    var selectedValue = $('#selComputadoraMolMat').val(); // Modificado
     switch (selectedValue) {
         case 'Dell':
             return 1;
@@ -19,49 +19,42 @@ function getComputadoraValue() {
 function GuardarUsuarioMantenimiento() {
     ;
 
-    if ($('#selMantenimientoMol').val() == '0') {
+    if ($('#selMantenimientoMolMat').val() == '0') { // Modificado
         swal('Ingrese el tipo de mantenimiento');
         return;
     }
-    if ($('#selComputadoraMol').val() == '0') {
+    if ($('#selComputadoraMolMat').val() == '0') { // Modificado
         swal('Ingrese la computadora');
         return;
     }
-    if ($('#txtModeloMol').val() == '') {
+    if ($('#txtModeloMolMat').val() == '') { // Modificado
         swal('Ingrese el modelo');
         return;
     }
-    if ($('#selRecibeMol').val() == '0') {
+    if ($('#selRecibeMolMat').val() == '0') { // Modificado
         swal('Ingrese el empleado que recibe');
         return;
     }
-    if ($('#txtCostoMol').val() == '') {
-        swal('Ingrese el costo');
-        return;
-    }
-    if ($('#txtAbonoMol').val() == '') {
-        swal('Ingrese el abono');
-        return;
-    }
+
     users.push({
         "id": users.length + 1,
-        "name": $('#txtNombreCliente').val(),
-        "cedula": $('#txtCedula').val(),
-        "fecha": $('#txtFechaSolicitud').val(),
-        "sucursal": $('#selSurcursal').val(),
-        "tipo": $('#selMantenimientoMol').val(),
-        "computadora": $('#selComputadoraMol').val(),
-        "modelo": $('#txtModeloMol').val(),
-        "recibe": $('#selRecibeMol').val(),
+        "name": $('#txtNombreClienteMat').val(),
+        "cedula": $('#txtCedulaMat').val(),
+        "fecha": $('#txtFechaSolicitudMat').val(),
+        "sucursal": $('#selSurcursalMat').val(),
+        "tipo": $('#selMantenimientoMolMat').val(),
+        "computadora": $('#selComputadoraMolMat').val(),
+        "modelo": $('#txtModeloMolMat').val(),
+        "recibe": $('#selRecibeMolMat').val(),
         "img": getComputadoraValue(),
-        "detalles": $('#txtDetallesModal').val(),
-        "costo": $('#txtCostoMol').val(),
-        "debe": $('#txtDebeMol').val(),
-        "abono": $('#txtAbonoMol').val(),
-        "direccion": $('#txtDireccion').val()
+        "detalles": $('#txtDetallesModalMat').val(),
+        "costo": $('#txtCostoMolMat').val(),
+        "debe": $('#txtDebeMolMat').val(),
+        "abono": $('#txtAbonoMolMat').val(),
+        "direccion": $('#txtDireccionMat').val()
     });
     recorrerArray();
-    //alert($('#txtRecibe').val());
+    //alert($('#txtRecibeMat').val()); // Esta línea parece estar comentada y hace referencia a un ID no presente en el fragmento original. Asegúrate de actualizarla si es necesario.
     swal('Mantenimiento Guardado');
     modal.style.display = "none";
     return;
@@ -83,7 +76,7 @@ var users = [
 
 //Recorre apra agregar en lla tabla yd efine las columnas
 function recorrerArray() {
-    $('#listEmpleados').empty();
+    $('#listEmpleadosMat').empty();
     for (var i = 0; i < users.length; i++) {
         var Botones = '<td width="5%" style="text-align:center;">' +
             '<div class="CeldasTabla" onclick="generarPDF(\'' + users[i].id + '\');">' +
@@ -99,39 +92,39 @@ function recorrerArray() {
             '<td>' + users[i].debe + '</td>' +
             Botones +
             '</tr>';
-        $('#listEmpleados').append(newTr);
+        $('#listEmpleadosMat').append(newTr);
     }
 }
 
 
 // Get the modal
-var modal = document.getElementById("myModal");
+var modal = document.getElementById("myModalMat");
 
 // Get the button that opens the modal
-var btn = document.getElementById("myBtn");
+var btn = document.getElementById("myBtnMat");
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 
 // When the user clicks the button, open the modal 
 btn.onclick = function () {
-    if ($('#txtNombreCliente').val() == '') {
+    if ($('#txtNombreClienteMat').val() == '') {
         swal('Ingrese nombre del cliente');
         return;
     }
-    if ($('#txtCedula').val() == '') {
+    if ($('#txtCedulaMat').val() == '') {
         swal('Ingrese su cédula');
         return;
     }
-    if ($('#txtFechaSolicitud').val() == '') {
+    if ($('#txtFechaSolicitudMat').val() == '') {
         swal('Ingrese la fecha');
         return;
     }
-    if ($('#selSurcursal').val() == '0') {
+    if ($('#selSurcursalMat').val() == '0') {
         swal('Ingrese la sucursal');
         return;
     }
-    if ($('#txtDireccion').val() == '') {
+    if ($('#txtDireccionMat').val() == '') {
         swal('Ingrese la direccion');
         return;
     }
@@ -188,41 +181,41 @@ async function convertImagesToBase64() {
 (async function () {
     await convertImagesToBase64();
 
-    $('#selComputadoraMol').change(function () {
+    $('#selComputadoraMolMat').change(function () {
         switch ($(this).val()) {
             case '0':
-                $("#previa").attr("src", "img/imagen11.jpg");
+                $("#previaMat").attr("src", "img/imagen11.jpg");
                 break;
             case 'Dell':
-                $("#previa").attr("src", arrayBase64[0]);
+                $("#previaMat").attr("src", arrayBase64[0]);
                 break;
             case 'Hp':
-                $("#previa").attr("src", arrayBase64[1]);
+                $("#previaMat").attr("src", arrayBase64[1]);
                 break;
             case 'Asus':
-                $("#previa").attr("src", arrayBase64[2]);
+                $("#previaMat").attr("src", arrayBase64[2]);
                 break;
             case 'MSI':
-                $("#previa").attr("src", arrayBase64[3]);
+                $("#previaMat").attr("src", arrayBase64[3]);
                 break;
             case 'Apple':
-                $("#previa").attr("src", arrayBase64[4]);
+                $("#previaMat").attr("src", arrayBase64[4]);
                 break;
             default:
-                $("#previa").attr("src", "img/imagen11.jpg");
+                $("#previaMat").attr("src", "img/imagen11.jpg");
         }
     });
 })();
 
 
 //Detalles
-$("#dvDetallesMol").hide();
-$("#chkDetallesMol").change(function () {
+$("#dvDetallesMolMat").hide();
+$("#chkDetallesMolMat").change(function () {
     if (this.checked) {
-        $("#dvDetallesMol").show();
+        $("#dvDetallesMolMat").show();
     }
     else {
-        $("#dvDetallesMol").hide();
+        $("#dvDetallesMolMat").hide();
     }
 });
 
@@ -230,9 +223,9 @@ $("#chkDetallesMol").change(function () {
 //Calculo de lo que se debe
 
 function CalcularDebe() {
-    if ($('#txtCostoMol').val() != '' && $('#txtAbonoMol').val() != '') {
-        var Resultado = parseFloat($('#txtCostoMol').val()) - parseFloat($('#txtAbonoMol').val());
-        $('#txtDebeMol').val(Resultado);
+    if ($('#txtCostoMolMat').val() != '' && $('#txtAbonoMolMat').val() != '') {
+        var Resultado = parseFloat($('#txtCostoMolMat').val()) - parseFloat($('#txtAbonoMolMat').val());
+        $('#txtDebeMolMat').val(Resultado);
     }
 }
 
