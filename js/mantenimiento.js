@@ -143,3 +143,95 @@ window.onclick = function (event) {
         modal.style.display = "none";
     }
 }
+
+///Modal ------------------------------------------------------------------
+// Array de rutas de imágenes
+var imageArray = [
+    "img/imagen5.jpg",
+    "img/imagen6.jpg",
+    "img/imagen7.jpg",
+    "img/imagen8.jpg",
+    "img/imagen9.jpg"
+];
+
+// Array para almacenar las imágenes en base64
+const arrayBase64 = [];
+
+// Función para convertir Blob a base64
+function encodeFilesAsBase64URL(blob) {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onloadend = () => resolve(reader.result);
+        reader.onerror = reject;
+        reader.readAsDataURL(blob);
+    });
+}
+
+// Función para convertir imágenes a base64 y almacenarlas en arrayBase64
+async function convertImagesToBase64() {
+    for (let i = 0; i < imageArray.length; i++) {
+        const response = await fetch(imageArray[i]);
+        const blob = await response.blob();
+        const base64 = await encodeFilesAsBase64URL(blob);
+        arrayBase64.push(base64);
+    }
+}
+
+// Ejecutar la conversión de imágenes y configurar el event handler
+(async function () {
+    await convertImagesToBase64();
+
+    $('#selComputadoraMol').change(function () {
+        switch ($(this).val()) {
+            case '0':
+                $("#previa").attr("src", "img/imagen11.jpg");
+                break;
+            case 'Dell':
+                $("#previa").attr("src", arrayBase64[0]);
+                break;
+            case 'Hp':
+                $("#previa").attr("src", arrayBase64[1]);
+                break;
+            case 'Asus':
+                $("#previa").attr("src", arrayBase64[2]);
+                break;
+            case 'MSI':
+                $("#previa").attr("src", arrayBase64[3]);
+                break;
+            case 'Apple':
+                $("#previa").attr("src", arrayBase64[4]);
+                break;
+            default:
+                $("#previa").attr("src", "img/imagen11.jpg");
+        }
+    });
+})();
+
+
+//Detalles
+$("#dvDetallesMol").hide();
+$("#chkDetallesMol").change(function () {
+    if (this.checked) {
+        $("#dvDetallesMol").show();
+    }
+    else {
+        $("#dvDetallesMol").hide();
+    }
+});
+
+
+//Calculo de lo que se debe
+
+function CalcularDebe() {
+    if ($('#txtCostoMol').val() != '' && $('#txtAbonoMol').val() != '') {
+        var Resultado = parseFloat($('#txtCostoMol').val()) - parseFloat($('#txtAbonoMol').val());
+        $('#txtDebeMol').val(Resultado);
+    }
+}
+
+
+
+
+
+
+
