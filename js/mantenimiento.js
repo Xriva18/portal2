@@ -17,6 +17,32 @@ function getComputadoraValue() {
 }
 //Guarda y agrega
 function GuardarUsuarioMantenimiento() {
+    ;
+
+    if ($('#selMantenimientoMol').val() == '0') {
+        swal('Ingrese el tipo de mantenimiento');
+        return;
+    }
+    if ($('#selComputadoraMol').val() == '0') {
+        swal('Ingrese la computadora');
+        return;
+    }
+    if ($('#txtModeloMol').val() == '') {
+        swal('Ingrese el modelo');
+        return;
+    }
+    if ($('#selRecibeMol').val() == '0') {
+        swal('Ingrese el empleado que recibe');
+        return;
+    }
+    if ($('#txtCostoMol').val() == '') {
+        swal('Ingrese el costo');
+        return;
+    }
+    if ($('#txtAbonoMol').val() == '') {
+        swal('Ingrese el abono');
+        return;
+    }
     users.push({
         "id": users.length + 1,
         "name": $('#txtNombreCliente').val(),
@@ -89,7 +115,7 @@ var span = document.getElementsByClassName("close")[0];
 
 // When the user clicks the button, open the modal 
 btn.onclick = function () {
-    /*if ($('#txtNombreCliente').val() == '') {
+    if ($('#txtNombreCliente').val() == '') {
         swal('Ingrese nombre del cliente');
         return;
     }
@@ -105,10 +131,10 @@ btn.onclick = function () {
         swal('Ingrese la sucursal');
         return;
     }
-    if ($('txtDireccion').val() == '') {
+    if ($('#txtDireccion').val() == '') {
         swal('Ingrese la direccion');
         return;
-    }*/
+    }
 
     modal.style.display = "block";
 }
@@ -210,35 +236,8 @@ function CalcularDebe() {
     }
 }
 
-//Sauldar
-function seleccionarRow(idRegistro) {
-    var seleccionado = users.filter(x => x.id == idRegistro);
-
-    alert("Hola : " + seleccionado[0].name + " debe: " + seleccionado[0].debe);
-}
-
-
-
 function generarPDF(idBuscado) {
-
-    alert(
-        "ID: " + users[idBuscado - 1].id +
-        "\nName: " + users[idBuscado - 1].name +
-        "\nFecha: " + users[idBuscado - 1].fecha +
-        "\nTipo: " + users[idBuscado - 1].tipo +
-        "\nDebe: " + users[idBuscado - 1].debe +
-        "\nSucursal: " + users[idBuscado - 1].sucursal +
-        "\nDireccion: " + users[idBuscado - 1].direccion +
-        "\nCedula: " + users[idBuscado - 1].cedula +
-        "\nComputadora: " + users[idBuscado - 1].computadora +
-        "\nModelo: " + users[idBuscado - 1].modelo +
-        "\nImagen: " + users[idBuscado - 1].img +//me dice ques numero de iamgen es retasarle 1
-        "\nRecibe: " + users[idBuscado - 1].recibe +
-        "\nDetalles: " + users[idBuscado - 1].detalles +
-        "\nCosto: " + users[idBuscado - 1].costo +
-        "\nAbono: " + users[idBuscado - 1].abono
-    );
-
+    var us = users[idBuscado - 1];
     var doc = new jsPDF();
     var y = 20;
     var x = 20;
@@ -247,9 +246,90 @@ function generarPDF(idBuscado) {
     doc.setFontStyle('bold');
     doc.setFontSize(18);
     doc.text(76, y, 'Regsitro Mantenimiento');
-
-
-    var nombreArchivo = 'Mantenimiento.pdf';
+    y += 13;
+    doc.setFontSize(12);
+    doc.setFontStyle('times');
+    doc.setFontStyle('bold');
+    doc.text(x, y, 'ID: ');
+    doc.text(margenX, y, '|');
+    y += 10;
+    doc.text(x, y, 'Name: ');
+    doc.text(margenX, y, '|');
+    y += 10;
+    doc.text(x, y, 'Fecha: ');
+    doc.text(margenX, y, '|');
+    y += 10;
+    doc.text(x, y, 'Tipo: ');
+    doc.text(margenX, y, '|');
+    y += 10;
+    doc.text(x, y, 'Debe: ');
+    doc.text(margenX, y, '|');
+    y += 10;
+    doc.text(x, y, 'Sucursal: ');
+    doc.text(margenX, y, '|');
+    y += 10;
+    doc.text(x, y, 'Direccion: ');
+    doc.text(margenX, y, '|');
+    y += 10;
+    doc.text(x, y, 'Cedula: ');
+    doc.text(margenX, y, '|');
+    y += 10;
+    doc.text(x, y, 'Computadora: ');
+    doc.text(margenX, y, '|');
+    y += 10;
+    doc.text(x, y, 'Modelo: ');
+    doc.text(margenX, y, '|');
+    y += 10;
+    doc.text(x, y, 'Costo: ');
+    doc.text(margenX, y, '|');
+    y += 10;
+    doc.text(x, y, 'Abono: ');
+    doc.text(margenX, y, '|');
+    y += 10;
+    doc.text(x, y, 'Recibe (Empelado): ');
+    doc.text(margenX, y, '|');
+    y += 10;
+    if (us.detalles != '') {
+        doc.text(x, y, 'Detalles: ');
+        doc.text(margenX, y, '|');
+        y += 10;
+    }
+    margenX = 70;
+    y = 33;
+    doc.setFontStyle('normal');
+    doc.text(margenX, y, '000' + us.id.toString());
+    y += 10;
+    doc.text(margenX, y, us.name.toString());
+    y += 10;
+    doc.text(margenX, y, us.fecha.toString());
+    y += 10;
+    doc.text(margenX, y, us.tipo.toString());
+    y += 10;
+    doc.text(margenX, y, '$' + us.debe.toString());
+    y += 10;
+    doc.text(margenX, y, us.sucursal.toString());
+    y += 10;
+    doc.text(margenX, y, us.direccion.toString());
+    y += 10;
+    doc.text(margenX, y, us.cedula.toString());
+    y += 10;
+    doc.text(margenX, y, us.computadora.toString());
+    y += 10;
+    doc.text(margenX, y, us.modelo.toString());
+    y += 10;
+    doc.text(margenX, y, '$' + us.costo.toString());
+    y += 10;
+    doc.text(margenX, y, '$' + us.abono.toString());
+    y += 10;
+    doc.text(margenX, y, us.recibe.toString());
+    y += 10;
+    doc.text(margenX, y, us.detalles.toString());
+    y += 10;
+    if (us.img != 0) {
+        doc.addImage(arrayBase64[us.img - 1], 'JPEG', 120, 50, 50, 50);
+    }
+    var nombreArchivo = 'Mantenimiento_000' + us.id.toString() + '.pdf';
     doc.save(nombreArchivo);
+    swal('PDF generado');
 }
 
